@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Team</title>
+    <style>
+        .team-section {
+            padding: 80px 0;
+            background-color: #ffffff;
+        }
+        .text-center-custom {
+            text-align: center;
+            margin: 0 auto;
+        }
+        .text-center-custom p {
+            color: #37393F;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+            padding-left: 20px;
+        }
+        .text-center-custom p::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background-color: #40DDB6;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+        .text-center-custom h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #2b2b2b;
+            margin-top: 5px;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1140px;
+            margin: 40px auto 0;
+            padding: 0 15px;
+        }
+        .team-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 380px;
+        }
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(92, 107, 192, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .team-card:hover .overlay {
+            opacity: 1;
+        }
+        .social-icons {
+            display: flex;
+            gap: 12px;
+        }
+        .icon {
+            width: 40px;
+            height: 40px;
+            background-color: #4cd1c0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease;
+        }
+        .icon:hover {
+            transform: scale(1.1);
+        }
+        .icon img {
+            width: 18px;
+            height: 18px;
+            object-fit: contain;
+        }
+        .info-boxe {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ffffff;
+            width: 85%;
+            padding: 15px;
+            text-align: center;
+            border-radius: 6px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .info-box h3 {
+            font-size: 18px;
+            color: #2b2b2b;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+        .info-box p {
+            font-size: 13px;
+            color: #7a7a7a;
+            margin: 0;
+        }
+
+           .end .container{
+            display: flex;
+            width: 100%;
+            max-width: 1100px;
+            background-color: #343a40;
+            color: #ffffff;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* القسم الأيسر (النصوص) */
+        .container .content-side {
+            flex: 1;
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 50%;
+        }
+
+        .tag {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .tag-box {
+            width: 10px;
+            height: 10px;
+            background-color: #20c997;
+        }
+
+        h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .description {
+            color: #adb5bd;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .stats-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        /* الدائرة الرسومية */
+        .circle-stat {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid #20c997;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        .circle-stat span {
+            font-size: 13px;
+            color: #ffffff;
+            line-height: 1.2;
+        }
+        .stat-details h3 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .stat-details h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+        .stat-details p {
+            font-size: 13px;
+            color: #adb5bd;
+            line-height: 1.5;
+        }
+        /* القسم الأيمن (الصورة) */
+        .image-side {
+            flex: 1;
+            background-image: url('../media/image/team-end.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            min-height: 450px;
+            width: 50%;
+        }
+        /* التجاوب مع الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .team-section {
+                flex-direction: column;
+            }
+            .image-side {
+                min-height: 300px;
+            }
+            .content-side {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+        <header class="site-header">
+        <!-- الشريط العلوي (Top Bar) -->
+        <div class="top-bar">
+            <div class="container top-bar-content">
+                <div class="contact-info">
+                    <span><img src="../media/icons/map-pin.png" alt=""> 24 Olive Street, Prairie, NY 53590</span>
+                    <span><img src="../media/icons/envelope-simple.png" alt=""> whitecollar@gmail.com</span>
+                </div>
+                <div class="extra-info">
+                    <span><img src="../media/icons/clock.png" alt=""> Mon - Fri: 8:00 am - 5:00 pm</span>
+                    <div class="social-icons">
+                        <a href="#"><img src="../media/icons/instagram-logo-fill.png" alt=""></a>
+                        <a href="#"><img src="../media/icons/facebook-logo-fill.png" alt=""></a>
+                        <a href="#"><img src="../media/icons/twitter-logo-fill.png" alt=""></a>
+                        <a href="#"><img src="../media/icons/pinterest-logo-fil.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- شريط التنقل الرئيسي (Main Navbar) -->
+        <div class="main-nav">
+            <div class="container nav-content">
+                <!-- الشعار -->
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 3L12 12L3 21" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 3L21 12L12 21" stroke="#6366f1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h1>WhiteCollar</h1>
+                </div>
+
+                <!-- القائمة -->
+               <nav class="nav-menu">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        
+                        <!-- القائمة المنسدلة للصفحات -->
+                        <li class="dropdown">
+                            <a href="#">Pages <i class="fa-solid fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="404-error.html">404 Error</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="blog-signel.html">Blog Single</a></li>
+                                <li><a href="changelog.html">Changelog</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li><a href="license.html">License</a></li>
+                                <li><a href="price.html">Pricing</a></li>
+                                <li><a href="projects.html">Projects</a></li>
+                                <li><a href="projects-singel.html">Projects Single</a></li>
+                                <li><a href="team.html">Team</a></li>
+                                <li><a href="password.html">Password Protected</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- قائمة منسدلة للخدمات أو روابط مباشرة -->
+                        <li class="dropdown">
+                            <a href="Our Services - 1.html">Services <i class="fa-solid fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="Our Services - 1.html">Our Services 1</a></li>
+                                <li><a href="Services Single - 1.html">Services Single 1</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+
+                <!-- زر الاستشارة -->
+                <div class="nav-action">
+                    <a href="#" class="consulting-btn">Get Consulting</a>
+                </div>
+
+                <!-- زر القائمة للهواتف -->
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+        </header>
+    <section class="hero">
+        <div class="heroText" style="padding-top: 10%; width: 100%;">
+            <p class="befor">Our Team</p>
+            <h1>Meet Our Experts</h1>
+        </div>
+        <div class="backGround"></div>
+    </section>
+
+
+    <section class="team-section">
+        <div class="container">
+            <div class="text-center-custom">
+                <p class="team-subtitle">Our Team</p>
+                <h2 class="team-title">Meet Our Experts</h2>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="image-wrapper">
+                        <img src="../media/image/nattascha.png" alt="Nattasha Kelvin">
+                        <div class="overlay">
+                            <div class="social-icons">
+                                <a href="#" class="icon"><img src="../media/icons/instagram-logo-fill.png" alt="Instagram"></a>
+                                <a href="#" class="icon"><img src="../media/icons/facebook-logo-fil.png" alt="Facebook"></a>
+                                <a href="#" class="icon"><img src="../media/icons/twitter-logo-fill.png" alt="Twitter"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-boxe">
+                        <h3>Nattasha Kelvin</h3>
+                        <p>Managing Director</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="image-wrapper">
+                        <img src="../media/image/davied.png" alt="David Simpson">
+                        <div class="overlay">
+                            <div class="social-icons">
+                                <a href="#" class="icon"><img src="../media/icons/instagram-logo-fill.png" alt="Instagram"></a>
+                                <a href="#" class="icon"><img src="../media/icons/facebook-logo-fil.png" alt="Facebook"></a>
+                                <a href="#" class="icon"><img src="../media/icons/twitter-logo-fill.png" alt="Twitter"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-boxe">
+                        <h3>David Simpson</h3>
+                        <p>Designer</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="image-wrapper">
+                        <img src="../media/image/nattascha.png" alt="Madeleine Grant">
+                        <div class="overlay">
+                            <div class="social-icons">
+                                <a href="#" class="icon"><img src="../media/icons/instagram-logo-fill.png" alt="Instagram"></a>
+                                <a href="#" class="icon"><img src="../media/icons/facebook-logo-fil.png" alt="Facebook"></a>
+                                <a href="#" class="icon"><img src="../media/icons/twitter-logo-fill.png" alt="Twitter"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-boxe">
+                        <h3>Madeleine Grant</h3>
+                        <p>Marketing Specialist</p>
+                    </div>
+                </div>
+                                <div class="team-card">
+                    <div class="image-wrapper">
+                        <img src="../media/image/nattascha.png" alt="Nattasha Kelvin">
+                        <div class="overlay">
+                            <div class="social-icons">
+                                <a href="#" class="icon"><img src="../media/icons/instagram-logo-fill.png" alt="Instagram"></a>
+                                <a href="#" class="icon"><img src="../media/icons/facebook-logo-fil.png" alt="Facebook"></a>
+                                <a href="#" class="icon"><img src="../media/icons/twitter-logo-fill.png" alt="Twitter"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-boxe">
+                        <h3>Nattasha Kelvin</h3>
+                        <p>Managing Director</p>
+                    </div>
+                </div>                <div class="team-card">
+                    <div class="image-wrapper">
+                        <img src="../media/image/nattascha.png" alt="Nattasha Kelvin">
+                        <div class="overlay">
+                            <div class="social-icons">
+                                <a href="#" class="icon"><img src="../media/icons/instagram-logo-fill.png" alt="Instagram"></a>
+                                <a href="#" class="icon"><img src="../media/icons/facebook-logo-fil.png" alt="Facebook"></a>
+                                <a href="#" class="icon"><img src="../media/icons/twitter-logo-fill.png" alt="Twitter"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-boxe">
+                        <h3>Nattasha Kelvin</h3>
+                        <p>Managing Director</p>
+                    </div>
+                </div>                <div class="team-card">
+                    <div class="image-wrapper">
+                        <img src="../media/image/nattascha.png" alt="Nattasha Kelvin">
+                        <div class="overlay">
+                            <div class="social-icons">
+                                <a href="#" class="icon"><img src="../media/icons/instagram-logo-fill.png" alt="Instagram"></a>
+                                <a href="#" class="icon"><img src="../media/icons/facebook-logo-fil.png" alt="Facebook"></a>
+                                <a href="#" class="icon"><img src="../media/icons/twitter-logo-fill.png" alt="Twitter"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-boxe">
+                        <h3>Nattasha Kelvin</h3>
+                        <p>Managing Director</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        <section class="end">
+        <div class="container">
+            <!-- القسم الأيسر: النصوص والعناصر -->
+        <div class="content-side">
+            <div class="tag">
+                <div class="tag-box"></div>
+                Dedicated Team
+            </div>
+            <h2>Professional Individuals</h2>
+            <p class="description">
+                Leverage agile frameworks to provided a synopsis for high overviews thinking overall proposition.
+            </p>
+
+            <div class="stats-container">
+                <div class="circle-stat">
+                    <span>Year of</span>
+                    <span>2023</span>
+                </div>
+                <div class="stat-details">
+                    <h3>75%</h3>
+                    <h4>Income Statement</h4>
+                    <p>Leverage agile frameworks to provide a robust proposition.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- القسم الأيمن: صورة الفريق -->
+        <div class="image-side"></div>
+        </div>
+    </section>
+<footer class="site-footer">
+        <div class="footer-container">
+            
+            <!-- الجزء العلوي: معلومات الاتصال السريع -->
+            <div class="footer-top-info">
+                <div class="footer-logo">
+                    <div class="logo-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 3L12 12L3 21" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 3L21 12L12 21" stroke="#6366f1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h2>WhiteCollar</h2>
+                </div>
+
+                <div class="info-boxes">
+                    <div class="info-box">
+                        <div class="icon-circle"><img src="../media/icons/phone.png" alt=""></div>
+                        <div>
+                            <span>Call Us</span>
+                            <strong>+01 569 896 654</strong>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="icon-circle"><img src="../media/icons/envelope-simple.png" alt=""></div>
+                        <div>
+                            <span>Mail Us</span>
+                            <strong>Info@Example.com</strong>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="icon-circle"><img src="../media/icons/map-pin.png" alt=""></div>
+                        <div>
+                            <span>Location</span>
+                            <strong>Amsterdam, 109-74</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <!-- الجزء الأوسط: القوائم ونموذج الاشتراكات -->
+            <div class="footer-main-grid">
+                <!-- القائمة الأولى: Quick Link -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Quick Link</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="Our Services - 1.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- القائمة الثانية: Our Services -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="Our Services - 1.html">Financial Consulting</a></li>
+                        <li><a href="Our Services - 1.html">Business Management</a></li>
+                        <li><a href="Our Services - 1.html">Consultant & Programs</a></li>
+                        <li><a href="Our Services - 1.html">Company Management</a></li>
+                        <li><a href="Our Services - 1.html">Insurance & Finance</a></li>
+                    </ul>
+                </div>
+
+                <!-- القائمة الثالثة: Utility Page -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Utility Page</h3>
+                    <ul class="footer-links">
+                        <li><a href="changelog.html">Style Guide</a></li>
+                        <li><a href="license.html">Licenses</a></li>
+                        <li><a href="changelog.html">Instructions</a></li>
+                        <li><a href="changelog.html">Changelog</a></li>
+                        <li><a href="404-error.html">404 Page</a></li>
+                    </ul>
+                </div>
+
+                <!-- نموذج الاشتراكات (Subscribe) -->
+                <div class="footer-col subscribe-col">
+                    <h3>Subscribe</h3>
+                    <p>Join Our Mailing List & to get our news.</p>
+                    <form class="subscribe-form">
+                        <input type="email" placeholder="your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <!-- الجزء السفلي: حقوق النشر وأيقونات التواصل -->
+            <div class="footer-bottom">
+                <p>Copyright &copy; <span style="color: #40DDB6;">WhiteCollar</span> | Designed by <span  style="color: #6B77E5;">VictorFlow</span> Templates - Powered by Webflow</p>
+                <div class="footer-social">
+                    <span>Follow :</span>
+                    <a href="#"><img src="../media/icons/instagram-logo-fill.png" alt=""></a>
+                    <a href="#"><img src="../media/icons/facebook-logo-fil.png" alt=""></a>
+                    <a href="#"><img src="../media/icons/twitter-logo-fill.png" alt=""></a>
+                    <a href="#"><img src="../media/icons/pinterest-logo-fil.png" alt=""></a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+</body>
+</html>

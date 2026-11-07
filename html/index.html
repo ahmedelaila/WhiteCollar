@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Home Page</title>
+    <style>
+        section.two .container{
+            display: flex;            
+            justify-content: space-between;  
+            align-items: center; 
+            height: 100vh;
+            width: 100%;
+        }
+        .two .card{
+            max-width: 30%;
+            height: 80%;
+            margin-top: 50px;
+            margin-left: 70px;
+            border: none;
+        }
+        .two .twoText{
+            max-width: 50%;
+            height: 100%;
+            margin-top: 40px;
+        }
+        .twoText .befor{
+            color: black;
+            width: 90%;
+            margin: auto;
+            position: relative;
+        }
+        .twoText h1{
+            margin: auto;
+            width: 90%;
+        }
+        .twoText p{
+            margin: auto;
+            width: 90%;
+            margin-bottom: 5px;
+        }
+        .twoText .check{
+            width: 90%;
+            margin: auto;
+            margin-bottom: 15px;
+            border: none;
+        }
+        .twoText .awards{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+        .awards .award img{
+            height: 50px;
+        }
+        .awards .award {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            gap: 15px;
+        }
+        .twoText button {
+            border: none;
+            width: 130px;
+            height: 40px;
+            background-color: #6B77E5;
+            color: white;
+            text-transform: capitalize;
+        }
+        .twoText button a{
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+        }
+        .card-body a {
+            text-decoration: underline;
+            color: #37393F;
+        }
+        .three .marks {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            font-size: 20px;
+        }
+        .marks .modern-home .span_text{
+            font-size: 10px;
+            color: #40DDB6;
+            font-weight: bold;
+        }
+        .circle-logo {
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+        }
+        .four .container{
+            height: 50vh;
+            margin-top: 40px;
+            width: 80%;
+        }        
+
+        .four .container .text {
+            width: 80%;
+            text-align: center;
+        }
+        .four .text h2{
+            font-weight: 700;
+            font-size: 40px;
+            width: 70%;
+            margin: 0 auto;
+            color: #37393F;
+        }
+        .bar {
+            position: relative;
+        }
+        .bar::before{
+            content: "";
+            width: 10px;
+            height: 10px;
+            background-color: #40DDB6;
+            position: absolute;
+            top: 25%;
+            left: 38%;
+        }
+        .four .cards{
+            width: 80%;
+            margin: 0 auto;
+            padding-top: 100px;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-template-rows: repeat(2,100px);
+            gap: 25px;
+        }
+        .grid_card{
+            width: 100%;
+            height: 90px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: #fdfdfd;
+            border: 1px solid #eee;
+        }
+        .grid_card:last-child {
+            background-color: #6B77E5;
+            color: white;
+            justify-content: center;
+            align-items: center;
+        }
+        .grid_card h3:last-child a {
+            color: white;
+            text-decoration: none;
+        }
+        .grid_card h3 {
+            font-size: 18px;
+        }
+        .grid_card span a{
+            text-decoration: none;
+            text-transform: capitalize;
+            background-color: transparent;
+        }
+        section.five{
+            display: flex;            
+            align-items: center; 
+            justify-content: space-between;  
+            height: 100vh;
+            width: 100%;    
+        }
+        .five .fiveText{
+            max-width: 50%;
+            background-color: rgba(68, 70, 75, 0.849);
+            height: 100%;
+            padding-top: 50px;
+        }
+        .fiveText .befor{
+            color: #e0e5ec;
+            font-size: 15px;
+            width: 50%;
+            margin: auto;
+            position: relative;
+        }
+        .fiveText h1{
+            width: 70%;
+            margin: auto;
+            color: #e0e5ec;
+            text-align: justify;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+        .fiveText h1 .changeColor{
+            color: #40DDB6;
+        }
+        .fiveText p{
+            width: 70%;
+            text-align: justify;
+            margin: auto;
+            color: #B9B9B9;
+            font-size: 15px;
+        }
+        .five .backGround{
+            background-image: url(../media/image/one.png);
+            background-size: cover;
+            height: 100%;
+            width: 100%;
+            max-width: 50%;
+            flex: 1;
+        }
+        .five .cards {
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 40px;
+            gap: 15px;
+            height: 133px;
+        }
+        .five .cards .fiveCard {
+            max-width: 50%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        .circular-progress{
+            position: relative;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: conic-gradient(
+                #40BBD6 calc(var(--percent) * 1%), 
+                #e0e0e0 0deg
+            );
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .circular-progress::before {
+            content: "";
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+        .circular-progress span {
+            position: relative;
+            font-size: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+        .five .cards div {
+            background-color: #2E2F34;
+            color: white;
+        }
+        .addtext .addcard {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 15px;
+        }
+        .addcard div {
+            color: white;
+            width: 250px;
+            height: 50px;
+        }
+        .addcard a {
+            text-decoration: underline;
+            color: #40DDB6;
+        }
+        .sextext {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .sextext div {
+            width: 70%;
+        }
+        .sextext div p{
+            position: relative;
+        }
+        .sextext div p::before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            background-color: #40DDB6;
+            position: absolute;
+            top: 50%;
+            left: -10px;
+            transform: translate(-50%,-50%);    
+        }
+        .sextext div h1{
+            width: 65%;
+            font-weight: 700;
+        }
+        .sextext button{
+            border: none;
+            width: 125px;
+            height: 40px;
+            background-color: #40DDB6;
+            color: white;
+            text-transform: capitalize;    
+        }
+        .sextext button a {
+            text-decoration: none;
+            color: white;
+        }
+        hr {
+            font-weight: bold;
+            width: 80%;
+            margin: auto;
+            margin-top: 15px;
+        }
+        #image img{
+            width: 300px;
+            height: 300px;
+        }
+        .seven .cards .container{
+            display: grid;
+            grid-template-columns: repeat(3, 30%);
+            gap: 3%;
+        }
+        .seven .card1 {
+            width: 100%;
+        }
+        .seven .card1 h1 {
+            font-weight: 700;
+        }
+        .seven .card1 p:first-child{
+            position: relative;
+        }
+        .seven .card1 p:first-child::before{
+            content: "";
+            width: 10px;
+            height: 10px;
+            background-color: #40DDB6;
+            position: absolute;
+            top: 50%;
+            left: -10px;
+            transform: translate(-50%,-50%);
+        }
+section.eight {
+    background-color: #6B77E5;
+    padding: 80px 0;
+    width: 100%;
+    min-height: auto;
+    overflow: hidden;
+}
+
+.eightflex {
+    width: 100%;
+}
+
+.eight-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    color: white;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.eight-left {
+    flex: 1;
+    max-width: 48%;
+}
+
+.eight-right {
+    flex: 1;
+    max-width: 48%;
+}
+        .box-badge {
+            width: 80px;
+            height: 80px;
+            border: 3px solid #6B77E5;
+            text-align: center;
+            color: white;
+            border-radius: 50%;
+        }
+        .box-text{
+            color: white;
+        }
+.form-card {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    color: #333;
+}
+
+.form-card h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 20px;
+    width: 100% !important;
+}
+
+.form-card input, 
+.form-card textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.grid-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.form-card button[type="submit"] {
+    background-color: #2cd5b3;
+    color: #0b4b3e;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 5px;
+}
+
+/* تنسيق المربعات والخطوط داخل القسم الأيسر */
+.box {
+    display: flex;
+    align-items: center;
+    background-color: #40DDB6;
+    border-radius: 6px;
+    padding: 15px;
+    margin: 25px 0;
+    gap: 15px;
+    color: #0b4b3e;
+}
+
+.srv {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.step-hr {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    width: 100%;
+    margin: 10px 0;
+}
+        section.nine {
+            background-image: url(../media/image/nine.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 50vh;
+            position: relative;
+        }
+        .nine h2{
+            width: 350px;
+            height: 80px;
+            background-color: #37393f9a;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50% , -50%);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* تنسيقات كارت النموذج بقسم 8 */
+.form-card {
+    background-color: #ffffff;
+    padding: 35px;
+    border-radius: 6px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.form-card h1 {
+    color: #222;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+}
+.grid-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+.read-more-btn {
+    color: #6B77E5;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}/* تنسيق قسم الفريق (Nine) ليكون متناسقاً مع الخلفية */
+section.nine {
+    background-image: url('../media/image/nine.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 40vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section.nine h2 {
+    color: #ffffff;
+    background-color: rgba(55, 57, 63, 0.85);
+    padding: 20px 40px;
+    border-radius: 4px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* تنسيق قسم الأخبار والمدونة (Ten) */
+/* تنسيق قسم الأخبار والمدونة (Ten) */
+.ten {
+    padding: 80px 0;
+}
+.ten .tenflex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 30px;
+}
+.ten .tenflex p.par {
+    color: #40DDB6;
+    font-size: 14px;
+    font-weight: 600;
+    position: relative;
+    margin-bottom: 5px;
+    padding-left: 15px;
+}
+.ten .tenflex p.par::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background-color: #40DDB6;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.ten .tenflex h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #222;
+}
+.ten .tenflex button {
+    background-color: #37393F;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* بطاقة المقال */
+.cardFlex {
+    background-color: #ffffff;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #eaeaea;
+}
+.cardFlex .image img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+/* شريط المعلومات الملون تحت الصورة مباشرة */
+.card-meta {
+    display: flex;
+    width: 100%;
+}
+.meta-item {
+    padding: 12px 15px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+    justify-content: center;
+    white-space: nowrap;
+}
+.meta-date {
+    background-color: #6B77E5;
+    color: white;
+}
+.meta-author {
+    background-color: #2CD5B3;
+    color: #fff;
+}
+.meta-category {
+    background-color: #2CD5B3;
+    color: #fff;
+}
+.meta-item img {
+    width: 14px;
+    filter: brightness(0) invert(1);
+}
+
+/* محتوى المقال والنصوص */
+.card-content {
+    padding: 25px 20px;
+}
+.card-title {
+    font-size: 1.3rem !important;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+.read-more-btn {
+    color: #6B77E5;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+}
+.read-more-btn:hover {
+    text-decoration: underline;
+}
+
+/* تنسيق قسم النهاية (End Banner) */
+section.end {
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../media/image/one.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    margin: 80px auto;
+    width: 85%;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.endtext {
+    background-color: rgba(64, 221, 182, 0.9);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+    color: #ffffff;
+}
+.endtext h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 15px 0;
+    max-width: 700px;
+}
+.endtext p#end {
+    max-width: 650px;
+    font-size: 15px;
+    margin-bottom: 25px;
+    color: #f1f1f1;
+}
+.endtext button {
+    background-color: #6B77E5;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.endtext button a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+/* ==========================================
+   Responsive Design / Media Queries
+   ========================================== */
+
+/* للشاشات المتوسطة والأجهزة اللوحية (Max-Width: 992px) */
+@media (max-width: 992px) {
+    /* أقسام الهيرو والخمسة تتحول لعمود واحد */
+    section.hero, section.five {
+        flex-direction: column;
+        height: auto;
+    }
+    .hero .heroText, .five .fiveText,
+    .hero .backGround, .five .backGround {
+        max-width: 100%;
+        height: 50vh;
+    }
+    
+    /* قسم الخدمات الثاني */
+    .two .container {
+        flex-direction: column;
+        height: auto;
+        padding: 40px 0;
+    }
+    .two .card, .two .twoText {
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* قسم كيف نعمل (Eight) */
+    .eight-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .eight-left, .eight-right {
+        max-width: 100%;
+    }
+
+    /* قسم الآراء (Seven) */
+    .seven .cards .container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+/* للشاشات الصغيرة والهواتف الذكية (Max-Width: 768px) */
+@media (max-width: 768px) {
+    /* الهيدر العلوي والشعار */
+    header .top {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+        padding: 10px 0;
+    }
+    .logo {
+        flex-direction: column;
+        gap: 15px;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* شبكة الخدمات الأربع (Four) */
+    .four .cards {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        width: 90%;
+        padding-top: 40px;
+    }
+    .four .container .text h2 {
+        font-size: 28px;
+        width: 100%;
+    }
+
+    /* معرض الصور */
+    #image {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    #image img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* نموذج الحجز */
+    .grid-inputs {
+        grid-template-columns: 1fr;
+    }
+
+    /* التذييل (Footer) */
+    .footer-top, .footer-main {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    /* المقالات والأخبار الحديثة (Ten) */
+    .ten .tenflex {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}
+
+/* للشاشات الأصغر جداً (Max-Width: 480px) */
+@media (max-width: 480px) {
+    #image {
+        grid-template-columns: 1fr !important;
+    }
+    .heroText h1, .fiveText h1, .endtext h1 {
+        font-size: 1.5rem;
+    }
+}
+
+    </style>
+</head>
+<body>
+<header class="site-header">
+        <!-- الشريط العلوي (Top Bar) -->
+        <div class="top-bar">
+            <div class="container top-bar-content">
+                <div class="contact-info">
+                    <span><img src="../media/icons/map-pin.png" alt=""> 24 Olive Street, Prairie, NY 53590</span>
+                    <span><img src="../media/icons/envelope-simple.png" alt=""> whitecollar@gmail.com</span>
+                </div>
+                <div class="extra-info">
+                    <span><img src="../media/icons/clock.png" alt=""> Mon - Fri: 8:00 am - 5:00 pm</span>
+                    <div class="social-icons">
+                        <a href="#"><img src="../media/icons/instagram-logo-fill.png" alt=""></a>
+                        <a href="#"><img src="../media/icons/facebook-logo-fill.png" alt=""></a>
+                        <a href="#"><img src="../media/icons/twitter-logo-fill.png" alt=""></a>
+                        <a href="#"><img src="../media/icons/pinterest-logo-fil.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- شريط التنقل الرئيسي (Main Navbar) -->
+        <div class="main-nav">
+            <div class="container nav-content">
+                <!-- الشعار -->
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 3L12 12L3 21" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 3L21 12L12 21" stroke="#6366f1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h1>WhiteCollar</h1>
+                </div>
+
+                <!-- القائمة -->
+               <nav class="nav-menu">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        
+                        <!-- القائمة المنسدلة للصفحات -->
+                        <li class="dropdown">
+                            <a href="#">Pages <i class="fa-solid fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="404-error.html">404 Error</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="blog-signel.html">Blog Single</a></li>
+                                <li><a href="changelog.html">Changelog</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li><a href="license.html">License</a></li>
+                                <li><a href="price.html">Pricing</a></li>
+                                <li><a href="projects.html">Projects</a></li>
+                                <li><a href="projects-singel.html">Projects Single</a></li>
+                                <li><a href="team.html">Team</a></li>
+                                <li><a href="password.html">Password Protected</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- قائمة منسدلة للخدمات أو روابط مباشرة -->
+                        <li class="dropdown">
+                            <a href="Our Services - 1.html">Services <i class="fa-solid fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="Our Services - 1.html">Our Services 1</a></li>
+                                <li><a href="Services Single - 1.html">Services Single 1</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+
+                <!-- زر الاستشارة -->
+                <div class="nav-action">
+                    <a href="#" class="consulting-btn">Get Consulting</a>
+                </div>
+
+                <!-- زر القائمة للهواتف -->
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        // تفعيل قائمة الهواتف الذكية
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script> 
+    <section class="hero">
+        <div class="heroText" style="padding-top: 10%; width: 100%;">
+            <p class="befor">Welcome to Whitecollar Solution</p>
+            <h1>The Best Value for <span class="changeColor">Business</span> and Corporation</h1>
+            <p>Collaboratively administrate empowered markets plug and play networks dynamically procrastinated</p>
+            <div class="btn">
+                <button>get Consulting</button>
+                <button><span><img src="../media/icons/play-circle-fill.png" alt="play"></span> Watch Videos</button>
+            </div>
+        </div>
+        <div class="backGround"></div>
+    </section>
+
+    <section class="two">
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <img src="../media/image/two.png" alt="iphone">
+                    <h4 class="card-title">We’re Ready To Grow Your Business With Us</h4>
+                    <p class="card-text">Leverage agile frameworks to provide a robust synopsis for high level overviews. thinking to further the overall value proposition.</p>
+                    <a href="#">Get in Touch</a>
+                </div>
+            </div>
+            <div class="twoText">
+                <p class="befor">Welcome Whitecollar</p>
+                <h1>We Care About Your Business Plan.</h1>
+                <p>Leverage agile frameworks to provide a robust synopsis for high level overviews.Iterative approaches to corporate strategy foster collaborative thinking.</p>
+                <div class="check">
+                    <img src="../media/icons/check-circle-fill.png" alt="check"> Components of a Business Strategy
+                </div>
+                <div class="check">
+                    <img src="../media/icons/check-circle-fill.png" alt="check"> Business Consulting
+                </div>
+                <div class="awards">
+                    <div class="award">
+                        <img src="../media/icons/certificate-thin.png" alt="certificate">
+                        <span>
+                            <h3>Experience</h3>
+                            <p>Leverage frameworks to provide empowerment.</p>
+                        </span>
+                    </div>
+                    <div class="award">
+                        <img src="../media/icons/Awards.png" alt="Awards">
+                        <span>
+                            <h3>Awards Winner</h3>
+                            <p>Leverage frameworks to provide empowerment.</p>
+                        </span>
+                    </div>
+                </div>
+                <button><a href="#about">More About Us</a></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="four">
+        <div class="container">
+            <div class="text">
+                <p class="bar">We Are Expertise In</p>
+                <h2>We Provide Professional Business Solutions.</h2>
+            </div>
+        </div>
+            <div class="cards">
+                <div class="grid_card"><span><h3>Financial Consultancy</h3><a href="#"> read more</a></span><img src="../media/icons/bank-light.png" alt="bank"></div>
+                <div class="grid_card"><span><h3>Business Management</h3><a href="#"> read more</a></span><img src="../media/icons/align-bottom-light.png" alt="management"></div>
+                <div class="grid_card"><span><h3>Consultants & program</h3><a href="#"> read more</a></span></div>
+                <div class="grid_card"><span><h3>Company Management</h3><a href="#"> read more</a></span></div>
+                <div class="grid_card"><span><h3>Financial & Insurance jobs</h3><a href="#"> read more</a></span></div>
+                <div class="grid_card"><h3><a href="#">More Services</a></h3></div>
+            </div>
+        
+    </section>
+
+    <section class="five">
+        <div class="fiveText">
+            <p class="befor">Why Choose Me</p>
+            <h1>We Provide Solutions To Grow Your Business</h1>
+            <p>Leverage agile frameworks to provide a robust synopsis for high level overviews.</p>
+            <div class="cards">
+                <div class="fiveCard">
+                    <div class="circular-progress" style="--percent: 95;">
+                        <span>95%</span>
+                    </div>
+                    <div class="text">
+                        <p>Clients</p>
+                        <h3>Quick Response</h3>
+                    </div>
+                </div>
+                <div class="fiveCard">
+                    <div class="circular-progress" style="--percent: 85;">
+                        <span>85%</span>
+                    </div>
+                    <div>
+                        <p>Clients</p>
+                        <h3>Quick Response</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="addtext">
+                <div class="addcard">
+                    <div>
+                        <div><img src="../media/icons/check-circle-fill.png" alt="check"> 2,800+ Active clients</div>
+                        <div><img src="../media/icons/check-circle-fill.png" alt="check"> 1,670 <span>+5 stars reviews</span></div>
+                    </div>
+                    <div>
+                        <div><img src="../media/icons/check-circle-fill.png" alt="check"> +106</div>
+                        <a href="#">Get in Touch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="backGround"></div>
+    </section>
+
+    <section class="sex">
+        <div class="container">
+            <div class="sextext">
+                <div>
+                    <p>Our Project</p>
+                    <h1>You can check our projects as inspirations.</h1>
+                </div>
+                <button><a href="#">More Work</a></button>
+            </div>
+        </div>
+        <div id="image" class="grid text-center grid-cols-4">
+            <div><img src="../media/image/6,1.png" alt="screen"></div>
+            <div><img src="../media/image/6,2.png" alt="screen"></div>
+            <div><img src="../media/image/6,3.png" alt="screen"></div>
+            <div><img src="../media/image/6,4.png" alt="screen"></div>
+        </div>
+    </section>
+
+    <hr><br>
+
+    <section class="seven">
+        <div class="cards">
+            <div class="container">
+                <div class="card1">
+                    <p>Testimonial</p>
+                    <h1>What Our Client Say’s</h1>
+                    <p style="color: #7D7D7D; font-style: italic;">Leverage agile frameworks to provide a robust synopsis.</p>
+                </div>
+                <div class="card2" style="background-color: #d3d0d0; height: 100%;">
+                    <div style="display: flex; justify-content: space-evenly;">
+                        <img src="../media/image/sevenl.png" width="80px" height="80px" style="border-radius: 50%;" alt="face">
+                        <span style="font-size: 16px; margin-bottom: 35px; text-transform: capitalize;"><p>nattasha kelvin</p><p style="color: #7D7D7D;">Designer</p></span>
+                    </div>
+                    <p style="color: #7D7D7D; font-style: italic;">“ Add an excerpt from your personal biography, or simply let the world know who you are.”</p>
+                </div>
+                <div class="card3" style="background-color: #d3d0d0; height: 90%;">
+                    <div style="display: flex; justify-content: space-evenly;">
+                        <img src="../media/image/sevenr.png" width="80px" height="80px" style="border-radius: 50%;" alt="face">
+                        <span style="font-size: 16px; margin-bottom: 35px;"><p>Cincinnati</p><p style="color: #7D7D7D;">Designer</p></span>
+                    </div>
+                    <p style="color: #7D7D7D; font-style: italic;">“ Leverage agile frameworks to provide a robust synopsis ”</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<section class="eight">
+        <div class="eightflex">
+            <div class="container eight-container">
+                <div class="eight-left">
+                    <p id="mark">How We Work</p>
+                    <h1>To Get Your Business To The Next Level</h1>
+                    <p>Leverage agile frameworks to provide synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall.</p>
+                    
+                    <div class="box">
+                        <p class="box-badge"><b>562+</b> project</p>
+                        <p class="box-text">We have <b>50+</b> years of experience. We offer <b>whitecollar</b> services to you</p>
+                    </div>
+
+                    <div class="steps-wrapper">
+                        <div class="srv">
+                            <img src="../media/icons/check-circle-fil.png" alt="check">
+                            <p>Planning</p>
+                        </div>
+                        <div class="sre">
+                            <p>Leverage agile frameworks to provide synopsis for high level overviews.</p>
+                            <hr class="step-hr">
+                        </div>
+
+                        <div class="srv">
+                            <img src="../media/icons/check-circle-fil.png" alt="check">
+                            <p>Briefing</p>
+                        </div>
+                        <div class="sre">
+                            <p>Leverage agile frameworks to provide synopsis for high level overviews.</p>
+                            <hr class="step-hr">
+                        </div>
+
+                        <div class="srv">
+                            <img src="../media/icons/check-circle-fil.png" alt="check">
+                            <p>Evaluation</p>
+                        </div>
+                        <div class="sre">
+                            <p>Leverage agile frameworks to provide synopsis for high level overviews.</p>
+                            <hr class="step-hr">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- القسم الأيمن: نموذج الحجز (Form) -->
+                <div class="form eight-right">
+                    <div class="form-card">
+                        <p id="mark">Book Now</p>
+                        <h1>Get Free Business Appointment</h1>
+                        <form action="#" method="POST">
+                            <input type="text" placeholder="Yourname" required>
+                            <input type="email" placeholder="Email Address" required>
+                            <input type="tel" placeholder="Phone Number">
+                            
+                            <div class="grid-inputs">
+                                <input type="date" placeholder="Date">
+                                <input type="time" name="time" placeholder="Time">
+                            </div>
+                            
+                            <textarea name="description" rows="4" placeholder="Service Description"></textarea>
+                            <button type="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="nine">
+        <h2>Our Expert Team</h2>
+    </section>
+
+<section class="ten">
+    <div class="container">
+        <div class="tenflex">
+            <div>
+                <p class="par">Our Recent News</p>
+                <h2>Latest Posts</h2>
+            </div>
+            <button>More News</button>
+        </div>
+        
+        <div class="flex" style="display: flex; justify-content: space-between; gap: 30px; margin-top: 40px; flex-wrap: wrap;">
+            <div class="flex1" style="flex: 1; min-width: 300px;">
+                <div class="cardFlex">
+                    <div class="image">
+                        <img src="../media/image/tenleft.png" alt="Post Image">
+                    </div>
+                    <div class="card-meta">
+                        <div class="meta-item meta-date">April 13/ 2021</div>
+                        <div class="meta-item meta-author">
+                            <img src="../media/icons/user-fill.png" alt="user"> Miranda Doe
+                        </div>
+                        <div class="meta-item meta-category">
+                            <img src="../media/icons/tag-fill.png" alt="tag"> Business
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">A Business Consulting That Can Produce</h2>
+                        <p class="card-description" style="color: #7D7D7D; font-size: 14px; margin-bottom: 15px;">
+                            Leverage agile frameworks to provide a robust synopsis for high level overviews.Iterative approaches to corporate strategy foster collaborative thinking.
+                        </p>
+                        <a href="#" class="read-more-btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex1" style="flex: 1; min-width: 300px;">
+                <div class="cardFlex">
+                    <div class="image">
+                        <img src="../media/image/tenright.png" alt="Post Image">
+                    </div>
+                    <div class="card-meta">
+                        <div class="meta-item meta-date">April 13/ 2021</div>
+                        <div class="meta-item meta-author">
+                            <img src="../media/icons/user-fill.png" alt="user"> Miranda Doe
+                        </div>
+                        <div class="meta-item meta-category">
+                            <img src="../media/icons/tag-fill.png" alt="tag"> Business
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h2 class="card-title">Team Identifiers, Benefits, and How to Build One that Works</h2>
+                        <p class="card-description" style="color: #7D7D7D; font-size: 14px; margin-bottom: 15px;">
+                            Leverage agile frameworks to provide a robust synopsis for high level overviews.Iterative approaches to corporate strategy foster collaborative thinking.
+                        </p>
+                        <a href="#" class="read-more-btn">Read MoreLink</a>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+</section>
+
+    <section class="end">
+        <div class="container">
+            <div class="endtext">
+                <p class="bar">Subscribe Whitecollar</p>
+                <h1>Need An Experienced <span>Whitecollar</span> job Service? Contact Us</h1>
+                <p id="end">Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking further the overall.</p>
+                <button><a href="#">Get Started</a></button>
+            </div>
+        </div>
+    </section>
+
+        <footer class="site-footer">
+        <div class="footer-container">
+            
+            <!-- الجزء العلوي: معلومات الاتصال السريع -->
+            <div class="footer-top-info">
+                <div class="footer-logo">
+                    <div class="logo-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 3L12 12L3 21" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 3L21 12L12 21" stroke="#6366f1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h2>WhiteCollar</h2>
+                </div>
+
+                <div class="info-boxes">
+                    <div class="info-box">
+                        <div class="icon-circle"><img src="../media/icons/phone.png" alt=""></div>
+                        <div>
+                            <span>Call Us</span>
+                            <strong>+01 569 896 654</strong>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="icon-circle"><img src="../media/icons/envelope-simple.png" alt=""></div>
+                        <div>
+                            <span>Mail Us</span>
+                            <strong>Info@Example.com</strong>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="icon-circle"><img src="../media/icons/map-pin.png" alt=""></div>
+                        <div>
+                            <span>Location</span>
+                            <strong>Amsterdam, 109-74</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <!-- الجزء الأوسط: القوائم ونموذج الاشتراكات -->
+            <div class="footer-main-grid">
+                <!-- القائمة الأولى: Quick Link -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Quick Link</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="Our Services - 1.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- القائمة الثانية: Our Services -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="Our Services - 1.html">Financial Consulting</a></li>
+                        <li><a href="Our Services - 1.html">Business Management</a></li>
+                        <li><a href="Our Services - 1.html">Consultant & Programs</a></li>
+                        <li><a href="Our Services - 1.html">Company Management</a></li>
+                        <li><a href="Our Services - 1.html">Insurance & Finance</a></li>
+                    </ul>
+                </div>
+
+                <!-- القائمة الثالثة: Utility Page -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Utility Page</h3>
+                    <ul class="footer-links">
+                        <li><a href="changelog.html">Style Guide</a></li>
+                        <li><a href="license.html">Licenses</a></li>
+                        <li><a href="changelog.html">Instructions</a></li>
+                        <li><a href="changelog.html">Changelog</a></li>
+                        <li><a href="404-error.html">404 Page</a></li>
+                    </ul>
+                </div>
+
+                <!-- نموذج الاشتراكات (Subscribe) -->
+                <div class="footer-col subscribe-col">
+                    <h3>Subscribe</h3>
+                    <p>Join Our Mailing List & to get our news.</p>
+                    <form class="subscribe-form">
+                        <input type="email" placeholder="your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <!-- الجزء السفلي: حقوق النشر وأيقونات التواصل -->
+            <div class="footer-bottom">
+                <p>Copyright &copy; <span style="color: #40DDB6;">WhiteCollar</span> | Designed by <span  style="color: #6B77E5;">VictorFlow</span> Templates - Powered by Webflow</p>
+                <div class="footer-social">
+                    <span>Follow :</span>
+                    <a href="#"><img src="../media/icons/instagram-logo-fill.png" alt=""></a>
+                    <a href="#"><img src="../media/icons/facebook-logo-fil.png" alt=""></a>
+                    <a href="#"><img src="../media/icons/twitter-logo-fill.png" alt=""></a>
+                    <a href="#"><img src="../media/icons/pinterest-logo-fil.png" alt=""></a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>

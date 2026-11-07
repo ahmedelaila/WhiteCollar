@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>About Us - Whitecollar</title>
+    <style>
+        /* Section Two */
+        section.two {
+            padding: 80px 0;
+        }
+        section.two .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+        .two .card-custom {
+            flex: 1;
+            background: #f8f9fa;
+            border: none;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .two .card-custom img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+        .two .twoText {
+            flex: 1.2;
+        }
+        .twoText h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin: 15px 0;
+        }
+        .twoText > p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        .checkFlex {
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #E3E3E3;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        .checkFlex .check {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: #2b2b2b;
+            margin-bottom: 8px;
+        }
+        .checkFlex p {
+            color: #777;
+            font-size: 14px;
+            margin: 0;
+        }
+        .twoText button {
+            border: none;
+            width: 150px;
+            height: 45px;
+            background-color: #6B77E5;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .twoText button a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            display: block;
+            line-height: 45px;
+        }
+
+        /* Grid / Work Process */
+        .grid {
+            padding: 80px 0;
+            background-color: #fcfcfc;
+        }
+        .text-center-custom {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .text-center-custom p {
+            color: #37393F;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+            padding-left: 20px;
+        }
+        .text-center-custom p::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background-color: #40DDB6;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+        .text-center-custom h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #2b2b2b;
+            margin-top: 5px;
+        }
+        .gridcards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1220px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        .gridcards .card-item {
+            width: 386px;
+            height: 337px;
+            background-color: #ffffff;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            margin-top: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+        }
+        .card-item .mark {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: -27px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .gridcards .card-item:nth-child(1) .mark { background-color: #4cd1c0; }
+        .gridcards .card-item:nth-child(2) .mark { background-color: #5c6bc0; }
+        .gridcards .card-item:nth-child(3) .mark { background-color: #26a69a; }
+        .card-item .mark img {
+            width: 24px;
+            height: 24px;
+            filter: brightness(0) invert(1);
+        }
+        .textCard h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2b2b2b;
+        }
+        .textCard p {
+            font-size: 14px;
+            color: #7a7a7a;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .textCard a {
+            font-size: 14px;
+            color: #5c6bc0;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Numbers Section */
+        .numbers {
+            background: linear-gradient#F8F8FFF7, #F8F8FFF7, url('../media/image/two.png');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+        }
+        .numbers .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        .card1 {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px 20px;
+            border-radius: 8px;
+            position: relative;
+            margin-top: 30px;
+        }
+        .card1 .icon-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .card1:nth-child(2) .icon-circle{
+            background-color: #6B77E5;
+        }
+        .card1 .icon-circle img {
+            width: 26px;
+            height: 26px;
+        }
+        .card1 h1 {
+            color: #40DDB6;
+            font-size: 36px;
+            font-weight: bold;
+            margin: 15px 0 5px;
+        }
+        .card1 h5 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .card1 p:last-child {
+            font-size: 13px;
+            color: #ccc;
+        }
+
+        /* Video Section */
+        .video {
+            width: 100%;
+            height: 60vh;
+            background: linear-gradient(rgba(64, 221, 182, 0.8), rgba(64, 221, 182, 0.8)), url('../media/image/computer-desktop-screen-table.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #37393F;
+        }
+        .video .text p#bar {
+            font-weight: 600;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+        .video .text h1 {
+            font-size: 40px;
+            font-weight: 700;
+            color: #2b2b2b;
+            margin-bottom: 15px;
+        }
+        .video .text p#last {
+            max-width: 600px;
+            margin: 0 auto 25px;
+            font-size: 15px;
+        }
+        .play-btn img {
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .play-btn img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 80px 0;
+            background-color: #ffffff;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1140px;
+            margin: 40px auto 0;
+            padding: 0 15px;
+        }
+        .team-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 380px;
+        }
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(92, 107, 192, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .team-card:hover .overlay {
+            opacity: 1;
+        }
+        .social-icons {
+            display: flex;
+            gap: 12px;
+        }
+        .icon {
+            width: 40px;
+            height: 40px;
+            background-color: #4cd1c0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease;
+        }
+        .icon:hover {
+            transform: scale(1.1);
+        }
+        .icon img {
+            width: 18px;
+            height: 18px;
+            object-fit: contain;
+        }
+        .info-boxe {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ffffff;
+            width: 85%;
+            padding: 15px;
+            text-align: center;
+            border-radius: 6px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .info-boxe h3 {
+            font-size: 18px;
+            color: #2b2b2b;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+        .info-boxe p {
+            font-size: 13px;
+            color: #7a7a7a;
+            margin: 0;
+        }
+
+        @media (max-width: 992px) {
+            .gridcards, .numbers .cards-grid, .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            section.two .container, section.hero {
+                flex-direction: column;
+                height: auto;
+            }
+            .hero .heroText, .hero .backGround {
+                width: 100%;
+                padding: 40px 20px;
+            }
+            .hero .backGround {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+<header class="site-header">
+        <!-- الشريط العلوي (Top Bar) -->
+        <div class="top-bar">
+            <div class="container top-bar-content">
+                <div class="contact-info">
+                    <span><img src="../media/icons/map-pin.png" alt=""> 24 Olive Street, Prairie, NY 53590</span>
+                    <span><img src="../media/icons/envelope-simple.png" alt=""> whitecollar@gmail.com</span>
+                </div>
+                <div class="extra-info">
+                    <span><img src="../media/icons/clock.png" alt=""> Mon - Fri: 8:00 am - 5:00 pm</span>
+                    <div class="social-icons">
+                        <a href="#"><img src="../media/icons/instagram-logo-fill.png" alt=""></a>
+                        <a href="#"><img src="../media/icons/facebook-logo-fill.png" alt=""></a>
+                        <a href="#"><img src="../media/icons/twitter-logo-fill.png" alt=""></a>
+                        <a href="#"><img src="../media/icons/pinterest-logo-fil.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- شريط التنقل الرئيسي (Main Navbar) -->
+        <div class="main-nav">
+            <div class="container nav-content">
+                <!-- الشعار -->
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 3L12 12L3 21" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 3L21 12L12 21" stroke="#6366f1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h1>WhiteCollar</h1>
+                </div>
+
+                <!-- القائمة -->
+               <nav class="nav-menu">
+                    <ul class="nav-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html" class="active">About Us</a></li>
+                        
+                        <!-- القائمة المنسدلة للصفحات -->
+                        <li class="dropdown">
+                            <a href="#">Pages <i class="fa-solid fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="404-error.html">404 Error</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="blog-signel.html">Blog Single</a></li>
+                                <li><a href="changelog.html">Changelog</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li><a href="license.html">License</a></li>
+                                <li><a href="price.html">Pricing</a></li>
+                                <li><a href="projects.html">Projects</a></li>
+                                <li><a href="projects-singel.html">Projects Single</a></li>
+                                <li><a href="team.html">Team</a></li>
+                                <li><a href="password.html">Password Protected</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- قائمة منسدلة للخدمات أو روابط مباشرة -->
+                        <li class="dropdown">
+                            <a href="Our Services - 1.html">Services <i class="fa-solid fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="Our Services - 1.html">Our Services 1</a></li>
+                                <li><a href="Services Single - 1.html">Services Single 1</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+
+                <!-- زر الاستشارة -->
+                <div class="nav-action">
+                    <a href="#" class="consulting-btn">Get Consulting</a>
+                </div>
+
+                <!-- زر القائمة للهواتف -->
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        // تفعيل قائمة الهواتف الذكية
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script> 
+
+    <section class="hero">
+        <div class="heroText">
+            <p class="befor">About Us</p>
+            <h1>Know About Us</h1>
+            <p>Collaboratively administrate empowered markets plug and play networks dynamically procrastinated</p>
+        </div>
+        <div class="backGround"></div>
+    </section>
+
+    <section class="two">
+        <div class="container">
+            <div class="card-custom">
+                <img src="../media/image/two.png" alt="Business">
+                <h4 class="card-title fw-bold mb-3">We’re Ready To Grow Your Business With Us</h4>
+                <p class="card-text text-muted mb-4">Leverage agile frameworks to provide a robust synopsis for high level overviews. thinking to further the overall value proposition.</p>
+                <a href="#" class="text-dark fw-bold text-decoration-underline">Get in Touch</a>
+            </div>
+            <div class="twoText">
+                <p class="befor text-dark">Welcome Whitecollar</p>
+                <h1>We Care About Your Business Plan.</h1>
+                <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking.</p>
+                
+                <div class="checkFlex">
+                    <div class="check">
+                        <img src="../media/icons/check-circle-fill.png" alt="check" width="18">
+                        Our Vision
+                    </div>
+                    <p>Capitalize on low hanging fruit to identify a ballpark value added activity to beta clickthroughs.</p>
+                </div>
+                
+                <div class="checkFlex">
+                    <div class="check">
+                        <img src="../media/icons/check-circle-fill.png" alt="check" width="18">
+                        Our Mission
+                    </div>
+                    <p>Podcasting operational change management inside of workflows to establish a framework.</p>
+                </div>
+                
+                <button><a href="#about">More About Us</a></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="grid">
+        <div class="container">
+            <div class="text-center-custom">
+                <p>Work Process</p>
+                <h1>How We Work</h1>
+            </div>
+            <div class="gridcards">
+                <div class="card-item">
+                    <div class="mark"><img src="../media/icons/calendar.png" alt="Calendar"></div>
+                    <div class="textCard">
+                        <h3>Make Appointment</h3>
+                        <p>Leverage agile frameworks provide synopsishigh level overviews value proposition.</p>
+                        <a href="#">Testimonials</a>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <div class="mark"><img src="../media/icons/puzzle-piece.png" alt="Consultation"></div>
+                    <div class="textCard">
+                        <h3>Consultation</h3>
+                        <p>Leverage agile frameworks provide synopsishigh level overviews value proposition.</p>
+                        <a href="#">Testimonials</a>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <div class="mark"><img src="../media/icons/shield-check.png" alt="shield-check"></div>
+                    <div class="textCard">
+                        <h3>Enjoy the Service</h3>
+                        <p>Leverage agile frameworks provide synopsishigh level overviews value proposition.</p>
+                        <a href="#">Testimonials</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="numbers">
+        <div class="container">
+            <div class="cards-grid">
+                <div class="card1">
+                    <div class="icon-circle"><img src="../media/icons/suitcase.png" alt=""></div>
+                    <h1>10+</h1>
+                    <h5>Years of experience</h5>
+                    <p>Synopsishigh level overviews value proposition.</p>
+                </div>
+                <div class="card1">
+                    <div class="icon-circle"><img src="../media/icons/handshake.png" alt=""></div>
+                    <h1>5960</h1>
+                    <h5>Satisfied clients</h5>
+                    <p>Synopsishigh level overviews value proposition.</p>
+                </div>
+                <div class="card1">
+                    <div class="icon-circle"><img src="../media/icons/file-code.png" alt=""></div>
+                    <h1>50K</h1>
+                    <h5>IT problems solved</h5>
+                    <p>Synopsishigh level overviews value proposition.</p>
+                </div>
+                <div class="card1">
+                    <div class="icon-circle"><img src="../media/icons/users-three.png" alt=""></div>
+                    <h1>25+</h1>
+                    <h5>Pro team members</h5>
+                    <p>Synopsishigh level overviews value proposition.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="video">
+        <div class="container">
+            <div class="text">
+                <p id="bar">Short Video</p>
+                <h1>Our Presentation</h1>
+                <p id="last">Collaboratively administrate channels whereas virtual tailers predominate procedures reliable supply chains.</p>
+                <div class="play-btn"><img src="../media/icons/play-circle(1).png" alt="play"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <div class="container">
+            <div class="text-center-custom">
+                <p class="team-subtitle">Our Team</p>
+                <h2 class="team-title">Meet Our Experts</h2>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="image-wrapper">
+                        <img src="../media/image/nattascha.png" alt="Nattasha Kelvin">
+                        <div class="overlay">
+                            <div class="social-icons">
+                                <a href="#" class="icon"><img src="../media/icons/instagram-logo-fill.png" alt="Instagram"></a>
+                                <a href="#" class="icon"><img src="../media/icons/facebook-logo-fil.png" alt="Facebook"></a>
+                                <a href="#" class="icon"><img src="../media/icons/twitter-logo-fill.png" alt="Twitter"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-boxe">
+                        <h3>Nattasha Kelvin</h3>
+                        <p>Managing Director</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="image-wrapper">
+                        <img src="../media/image/davied.png" alt="David Simpson">
+                        <div class="overlay">
+                            <div class="social-icons">
+                                <a href="#" class="icon"><img src="../media/icons/instagram-logo-fill.png" alt="Instagram"></a>
+                                <a href="#" class="icon"><img src="../media/icons/facebook-logo-fil.png" alt="Facebook"></a>
+                                <a href="#" class="icon"><img src="../media/icons/twitter-logo-fill.png" alt="Twitter"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-boxe">
+                        <h3>David Simpson</h3>
+                        <p>Designer</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="image-wrapper">
+                        <img src="../media/image/nattascha.png" alt="Madeleine Grant">
+                        <div class="overlay">
+                            <div class="social-icons">
+                                <a href="#" class="icon"><img src="../media/icons/instagram-logo-fill.png" alt="Instagram"></a>
+                                <a href="#" class="icon"><img src="../media/icons/facebook-logo-fil.png" alt="Facebook"></a>
+                                <a href="#" class="icon"><img src="../media/icons/twitter-logo-fill.png" alt="Twitter"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-boxe">
+                        <h3>Madeleine Grant</h3>
+                        <p>Marketing Specialist</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+       <footer class="site-footer">
+        <div class="footer-container">
+            
+            <!-- الجزء العلوي: معلومات الاتصال السريع -->
+            <div class="footer-top-info">
+                <div class="footer-logo">
+                    <div class="logo-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 3L12 12L3 21" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 3L21 12L12 21" stroke="#6366f1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h2>WhiteCollar</h2>
+                </div>
+
+                <div class="info-boxes">
+                    <div class="info-box">
+                        <div class="icon-circle"><img src="../media/icons/phone.png" alt=""></div>
+                        <div>
+                            <span>Call Us</span>
+                            <strong>+01 569 896 654</strong>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="icon-circle"><img src="../media/icons/envelope-simple.png" alt=""></div>
+                        <div>
+                            <span>Mail Us</span>
+                            <strong>Info@Example.com</strong>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="icon-circle"><img src="../media/icons/map-pin.png" alt=""></div>
+                        <div>
+                            <span>Location</span>
+                            <strong>Amsterdam, 109-74</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <!-- الجزء الأوسط: القوائم ونموذج الاشتراكات -->
+            <div class="footer-main-grid">
+                <!-- القائمة الأولى: Quick Link -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Quick Link</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="Our Services - 1.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- القائمة الثانية: Our Services -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="Our Services - 1.html">Financial Consulting</a></li>
+                        <li><a href="Our Services - 1.html">Business Management</a></li>
+                        <li><a href="Our Services - 1.html">Consultant & Programs</a></li>
+                        <li><a href="Our Services - 1.html">Company Management</a></li>
+                        <li><a href="Our Services - 1.html">Insurance & Finance</a></li>
+                    </ul>
+                </div>
+
+                <!-- القائمة الثالثة: Utility Page -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Utility Page</h3>
+                    <ul class="footer-links">
+                        <li><a href="changelog.html">Style Guide</a></li>
+                        <li><a href="license.html">Licenses</a></li>
+                        <li><a href="changelog.html">Instructions</a></li>
+                        <li><a href="changelog.html">Changelog</a></li>
+                        <li><a href="404-error.html">404 Page</a></li>
+                    </ul>
+                </div>
+
+                <!-- نموذج الاشتراكات (Subscribe) -->
+                <div class="footer-col subscribe-col">
+                    <h3>Subscribe</h3>
+                    <p>Join Our Mailing List & to get our news.</p>
+                    <form class="subscribe-form">
+                        <input type="email" placeholder="your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <!-- الجزء السفلي: حقوق النشر وأيقونات التواصل -->
+            <div class="footer-bottom">
+                <p>Copyright &copy; <span style="color: #40DDB6;">WhiteCollar</span> | Designed by <span  style="color: #6B77E5;">VictorFlow</span> Templates - Powered by Webflow</p>
+                <div class="footer-social">
+                    <span>Follow :</span>
+                    <a href="#"><img src="../media/icons/instagram-logo-fill.png" alt=""></a>
+                    <a href="#"><img src="../media/icons/facebook-logo-fil.png" alt=""></a>
+                    <a href="#"><img src="../media/icons/twitter-logo-fill.png" alt=""></a>
+                    <a href="#"><img src="../media/icons/pinterest-logo-fil.png" alt=""></a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+</body>
+</html>

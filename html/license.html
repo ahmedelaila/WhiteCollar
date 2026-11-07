@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Licensing - WhiteCollar</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<style>
+.licensing-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* العنوان الرئيسي مع النقطة الخضراء عبر ::before */
+.header-section {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.sub {
+    color: #37393F;
+    font-size: 13px;
+    font-weight: 500;
+    position: relative;
+    display: inline-block;
+    padding-left: 18px; /* مسافة لليسار لأن الاتجاه LTR */
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.sub::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background-color: #40ddb6;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.header-section h1 {
+    color: #37393F;
+    font-size: 48px;
+    font-weight: 700;
+}
+
+/* أقسام المحتوى */
+.section-block {
+    margin-bottom: 40px;
+}
+
+.section-block h2 {
+    color: #37393F;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.section-block p {
+    font-size: 15px;
+    margin-bottom: 12px;
+    color: #7D7D7D;
+}
+
+.section-block a {
+    color: #40ddb6;
+    text-decoration: none;
+}
+
+.section-block a:hover {
+    text-decoration: underline;
+}
+
+/* تصنيفات الصور */
+.photo-category {
+    margin-top: 20px;
+}
+
+.photo-category h3 {
+    color: #37393F;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.image-list {
+    font-size: 14px;
+    color: #6b7280;
+    word-break: break-word;
+}
+</style>
+<body>
+    <header class="site-header">
+        <!-- الشريط العلوي (Top Bar) -->
+        <div class="top-bar">
+            <div class="container top-bar-content">
+                <div class="contact-info">
+                    <span><img src="../media/icons/map-pin.png" alt=""> 24 Olive Street, Prairie, NY 53590</span>
+                    <span><img src="../media/icons/envelope-simple.png" alt=""> whitecollar@gmail.com</span>
+                </div>
+                <div class="extra-info">
+                    <span><img src="../media/icons/clock.png" alt=""> Mon - Fri: 8:00 am - 5:00 pm</span>
+                    <div class="social-icons">
+                        <a href="#"><img src="../media/icons/instagram-logo-fill.png" alt=""></a>
+                        <a href="#"><img src="../media/icons/facebook-logo-fill.png" alt=""></a>
+                        <a href="#"><img src="../media/icons/twitter-logo-fill.png" alt=""></a>
+                        <a href="#"><img src="../media/icons/pinterest-logo-fil.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- شريط التنقل الرئيسي (Main Navbar) -->
+        <div class="main-nav">
+            <div class="container nav-content">
+                <!-- الشعار -->
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 3L12 12L3 21" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 3L21 12L12 21" stroke="#6366f1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h1>WhiteCollar</h1>
+                </div>
+
+                <!-- القائمة -->
+               <nav class="nav-menu">
+                    <ul class="nav-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        
+                        <!-- القائمة المنسدلة للصفحات -->
+                        <li class="dropdown">
+                            <a href="#">Pages <i class="fa-solid fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="404-error.html">404 Error</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="blog-signel.html">Blog Single</a></li>
+                                <li><a href="changelog.html">Changelog</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li><a href="license.html">License</a></li>
+                                <li><a href="price.html">Pricing</a></li>
+                                <li><a href="projects.html">Projects</a></li>
+                                <li><a href="projects-singel.html">Projects Single</a></li>
+                                <li><a href="team.html">Team</a></li>
+                                <li><a href="password.html">Password Protected</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- قائمة منسدلة للخدمات أو روابط مباشرة -->
+                        <li class="dropdown">
+                            <a href="Our Services - 1.html">Services <i class="fa-solid fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="Our Services - 1.html">Our Services 1</a></li>
+                                <li><a href="Services Single - 1.html">Services Single 1</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+
+                <!-- زر الاستشارة -->
+                <div class="nav-action">
+                    <a href="#" class="consulting-btn">Get Consulting</a>
+                </div>
+
+                <!-- زر القائمة للهواتف -->
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+        </header>
+
+    <script>
+        // تفعيل قائمة الهواتف الذكية
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script> 
+    <div class="licensing-container">
+        
+        <!-- العنوان الرئيسي -->
+        <div class="header-section">
+            <span class="sub">Template Information</span>
+            <h1>Licensing</h1>
+        </div>
+
+        <!-- قسم Icons & Graphics -->
+        <div class="section-block">
+            <h2>Icons & Graphics</h2>
+            <p>Icons and Graphics were manually designed by the VictorFlow team. You may download these and edit them to fit your website without asking for permission or providing credit.</p>
+            <p class="link-item">Phosphor Icons: <a href="#">License</a></p>
+        </div>
+
+        <!-- قسم Photography -->
+        <div class="section-block">
+            <h2>Photography</h2>
+            <p>All images used in the WhiteCollar Webflow Template are licensed for free personal and commercial use. If you'd like to use any specific image, you can check the licenses and download the images for free on Unsplash, Pexels.</p>
+            
+            <div class="photo-category">
+                <h3>Pexels: <a href="#">License</a></h3>
+                <p class="image-list">Image 1, Image 2, Image 3, Image 4, Image 5, Image 6, Image 7, Image 8, Image 9, Image 10, Image 11, Image 12, Image 13, Image 14, Image 15, Image 16, Image 17, Image 18, Image 19, Image 20</p>
+            </div>
+
+            <div class="photo-category">
+                <h3>Unsplash: <a href="#">License</a></h3>
+                <p class="image-list">Image 1, Image 2, Image 3, Image 4, Image 5, Image 6, Image 7, Image 8, Image 9, Image 10, Image 11, Image 12, Image 13, Image 14, Image 15, Image 16, Image 17</p>
+            </div>
+        </div>
+
+        <!-- قسم Fonts -->
+        <div class="section-block">
+            <h2>Fonts</h2>
+            <p>WhiteCollar template uses free licensed <a href="#">Google Fonts</a>. Please check <a href="#">Poppins</a> and <a href="#">Inter</a>.</p>
+        </div>
+    </div>
+        <footer class="site-footer">
+        <div class="footer-container">
+            
+            <!-- الجزء العلوي: معلومات الاتصال السريع -->
+            <div class="footer-top-info">
+                <div class="footer-logo">
+                    <div class="logo-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 3L12 12L3 21" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 3L21 12L12 21" stroke="#6366f1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h2>WhiteCollar</h2>
+                </div>
+
+                <div class="info-boxes">
+                    <div class="info-box">
+                        <div class="icon-circle"><img src="../media/icons/phone.png" alt=""></div>
+                        <div>
+                            <span>Call Us</span>
+                            <strong>+01 569 896 654</strong>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="icon-circle"><img src="../media/icons/envelope-simple.png" alt=""></div>
+                        <div>
+                            <span>Mail Us</span>
+                            <strong>Info@Example.com</strong>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="icon-circle"><img src="../media/icons/map-pin.png" alt=""></div>
+                        <div>
+                            <span>Location</span>
+                            <strong>Amsterdam, 109-74</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <!-- الجزء الأوسط: القوائم ونموذج الاشتراكات -->
+            <div class="footer-main-grid">
+                <!-- القائمة الأولى: Quick Link -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Quick Link</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="Our Services - 1.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- القائمة الثانية: Our Services -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="Our Services - 1.html">Financial Consulting</a></li>
+                        <li><a href="Our Services - 1.html">Business Management</a></li>
+                        <li><a href="Our Services - 1.html">Consultant & Programs</a></li>
+                        <li><a href="Our Services - 1.html">Company Management</a></li>
+                        <li><a href="Our Services - 1.html">Insurance & Finance</a></li>
+                    </ul>
+                </div>
+
+                <!-- القائمة الثالثة: Utility Page -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Utility Page</h3>
+                    <ul class="footer-links">
+                        <li><a href="changelog.html">Style Guide</a></li>
+                        <li><a href="license.html">Licenses</a></li>
+                        <li><a href="changelog.html">Instructions</a></li>
+                        <li><a href="changelog.html">Changelog</a></li>
+                        <li><a href="404-error.html">404 Page</a></li>
+                    </ul>
+                </div>
+
+                <!-- نموذج الاشتراكات (Subscribe) -->
+                <div class="footer-col subscribe-col">
+                    <h3>Subscribe</h3>
+                    <p>Join Our Mailing List & to get our news.</p>
+                    <form class="subscribe-form">
+                        <input type="email" placeholder="your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <!-- الجزء السفلي: حقوق النشر وأيقونات التواصل -->
+            <div class="footer-bottom">
+                <p>Copyright &copy; <span style="color: #40DDB6;">WhiteCollar</span> | Designed by <span  style="color: #6B77E5;">VictorFlow</span> Templates - Powered by Webflow</p>
+                <div class="footer-social">
+                    <span>Follow :</span>
+                    <a href="#"><img src="../media/icons/instagram-logo-fill.png" alt=""></a>
+                    <a href="#"><img src="../media/icons/facebook-logo-fil.png" alt=""></a>
+                    <a href="#"><img src="../media/icons/twitter-logo-fill.png" alt=""></a>
+                    <a href="#"><img src="../media/icons/pinterest-logo-fil.png" alt=""></a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>

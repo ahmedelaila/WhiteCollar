@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Pricing Plans</title>
+    <style>
+        /* صورة المشروع الرئيسية */
+        .main-project-img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 50px;
+        }
+
+        /* تخطيط المحتوى (معلومات المشروع والتفاصيل) */
+        .project-content-wrapper {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        /* صندوق تفاصيل المشروع الجانبي */
+        .project-sidebar {
+            border-radius: 8px;
+            overflow: hidden;
+            align-self: start;
+            border: 1px solid #22222a;
+        }
+
+        .sidebar-title {
+            background-color: #f4f4f4;
+            color: #0b0b0f;
+            padding: 15px 20px;
+            font-weight: 700;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+        .sidebar-title:hover {
+            background-color: #40DDB6;
+            color: #ffffff;
+        }
+
+
+        .sidebar-list {
+            padding: 20px;
+        }
+
+        .sidebar-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #22222a;
+            padding-bottom: 15px;
+        }
+
+        .sidebar-item:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .sidebar-label {
+            font-size: 12px;
+            color: #7D7D7D;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .sidebar-value {
+            font-size: 15px;
+            color: #7D7D7D;
+            font-weight: 600;
+        }
+
+        /* محتوى تفاصيل المشروع النصي */
+        .project-details-text h3 {
+            font-size: 26px;
+            color: #37393F;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .project-details-text p {
+            margin-bottom: 20px;
+            font-size: 15px;
+            color: #9ca3af;
+        }
+
+        .project-features-list {
+            margin: 25px 0;
+        }
+
+        .project-features-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: #40DDB6;
+        }
+
+        /* قسم المشاريع ذات الصلة (Related Projects) */
+        .related-section {
+            margin-top: 80px;
+            margin-bottom: 80px;
+        }
+
+        .related-title {
+            text-align: center;
+            font-size: 32px;
+            color: #ffffff;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .related-card {
+            /* background-color: #141419; */
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #22222a;
+        }
+
+        .related-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .related-card-info {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .related-card-info h4 {
+            font-size: 15px;
+            color: #37393F;
+            margin-bottom: 5px;
+        }
+
+        .related-card-info span {
+            font-size: 12px;
+            color: #8c8c94;
+        }
+
+        .related-btn {
+            background-color: #F2F2F2;
+            color: #37393F;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 11px;
+        }
+         .related-btn:hover {
+            background-color: #4f46e5;
+            color: #ffffff;
+         }
+
+        /* التجاوب مع الشاشات الصغيرة */
+        @media (max-width: 992px) {
+            .project-content-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .related-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <!-- الشريط العلوي (Top Bar) -->
+        <div class="top-bar">
+            <div class="container top-bar-content">
+                <div class="contact-info">
+                    <span><img src="../media/icons/map-pin.png" alt=""> 24 Olive Street, Prairie, NY 53590</span>
+                    <span><img src="../media/icons/envelope-simple.png" alt=""> whitecollar@gmail.com</span>
+                </div>
+                <div class="extra-info">
+                    <span><img src="../media/icons/clock.png" alt=""> Mon - Fri: 8:00 am - 5:00 pm</span>
+                    <div class="social-icons">
+                        <a href="#"><img src="../media/icons/instagram-logo-fill.png" alt=""></a>
+                        <a href="#"><img src="../media/icons/facebook-logo-fill.png" alt=""></a>
+                        <a href="#"><img src="../media/icons/twitter-logo-fill.png" alt=""></a>
+                        <a href="#"><img src="../media/icons/pinterest-logo-fil.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- شريط التنقل الرئيسي (Main Navbar) -->
+        <div class="main-nav">
+            <div class="container nav-content">
+                <!-- الشعار -->
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 3L12 12L3 21" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 3L21 12L12 21" stroke="#6366f1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h1>WhiteCollar</h1>
+                </div>
+
+                <!-- القائمة -->
+               <nav class="nav-menu">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        
+                        <!-- القائمة المنسدلة للصفحات -->
+                        <li class="dropdown">
+                            <a href="#">Pages <i class="fa-solid fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="404-error.html">404 Error</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="blog-signel.html">Blog Single</a></li>
+                                <li><a href="changelog.html">Changelog</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li><a href="license.html">License</a></li>
+                                <li><a href="price.html">Pricing</a></li>
+                                <li><a href="projects.html">Projects</a></li>
+                                <li><a href="projects-singel.html">Projects Single</a></li>
+                                <li><a href="team.html">Team</a></li>
+                                <li><a href="password.html">Password Protected</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- قائمة منسدلة للخدمات أو روابط مباشرة -->
+                        <li class="dropdown">
+                            <a href="Our Services - 1.html">Services <i class="fa-solid fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="Our Services - 1.html">Our Services 1</a></li>
+                                <li><a href="Services Single - 1.html">Services Single 1</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+
+                <!-- زر الاستشارة -->
+                <div class="nav-action">
+                    <a href="#" class="consulting-btn">Get Consulting</a>
+                </div>
+
+                <!-- زر القائمة للهواتف -->
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+        </header>
+
+    <section class="hero">
+        <div class="heroText">
+            <p class="befor">LT Techs</p>
+            <h1>Financial Investment</h1>
+        </div>
+        <div class="backGround"></div>
+    </section>
+    
+</head>
+<body>
+    <!-- المحتوى الرئيسي -->
+    <div class="container">
+        <!-- صورة المشروع -->
+        <img src="../media/image/Financial Investment.png" alt="Financial Investment Workspace" class="main-project-img">
+
+        <!-- تفاصيل المشروع والجانبي -->
+        <div class="project-content-wrapper">
+            
+            <!-- الصندوق الجانبي -->
+            <div class="project-sidebar">
+                <div class="sidebar-title">Project Details</div>
+                <div class="sidebar-list">
+                    <div class="sidebar-item">
+                        <span class="sidebar-label">Client:</span>
+                        <span class="sidebar-value">Red Collar Animation</span>
+                    </div>
+                    <div class="sidebar-item">
+                        <span class="sidebar-label">Location:</span>
+                        <span class="sidebar-value">New York, United States</span>
+                    </div>
+                    <div class="sidebar-item">
+                        <span class="sidebar-label">Project Date:</span>
+                        <span class="sidebar-value">5 September, 2022</span>
+                    </div>
+                    <div class="sidebar-item">
+                        <span class="sidebar-label">Website:</span>
+                        <span class="sidebar-value">http://whitecollar.com</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- النصوص والتفاصيل -->
+            <div class="project-details-text">
+                <h3>Project Information</h3>
+                <p>Distinctively re-engineer revolutionary meta service  and premium architectures incubate intuitive opportunities and real-time potentialities. Appropriately communicates once one technology after plug-and-play networks.</p>
+                <p>Quickly aggregates users and worldwides potentialities progressively  plagiarize resource leveling e-commerce through resource leveling cores competencies dramatically mesh low risk high yield alignments before transparent e-tailers.</p>
+                
+                <ul class="project-features-list">
+                    <li><p>the printing and typesetting industry.</p></li>
+                    <li><p>Lorem ipsum dolor sit amet consectetur adipisicing.</p></li>
+                    <li><p>It has survived not only five centuries.</p></li>
+                </ul>
+
+                    <p>Compellingly embrace empowered e-business after user friendly intellectual capitals Interactively actualize front-end processes with effectives convergenced Synergistically deliver performanced based methods empowerment whereas distributed expertised efficiently enable enabled sources and cost effective products completely ethical communities.</p>                
+                <ol style="color: #7D7D7D;" class="project-features-list">
+                    <li><p>the printing and typesetting industry.</p></li>
+                    <li><p>Lorem ipsum dolor sit amet consectetur adipisicing.</p></li>
+                    <li><p>It has survived not only five centuries.</p></li>
+                </ol>
+
+                <p>Completely synergized resourced taxings relationships premiers markets ultimate one-to-one customer service with robust ideas dynamically innovated resources leveling customer service for state of the art customer service innovate product for reliable supply engage web services cutting-edge deliverables.</p>
+            </div>
+
+        </div>
+
+        <!-- المشاريع ذات الصلة -->
+        <div class="related-section">
+            <h3 class="related-title">Related Projects</h3>
+            
+            <div class="related-grid">
+                
+                <!-- مشروع 1 -->
+                <div class="related-card">
+                    <img src="../media/image/Financial Investment.png" alt="Financial Investment">
+                    <div class="related-card-info">
+                        <div>
+                            <h4>Financial Investment</h4>
+                            <span> Sep 2022</span>
+                        </div>
+                        <a href="#" class="related-btn">&#62;</a>
+                    </div>
+                </div>
+
+                <!-- مشروع 2 -->
+                <div class="related-card">
+                    <img src="../media/image/Marketing Strategy.png" alt="Marketing Strategy">
+                    <div class="related-card-info">
+                        <div>
+                            <h4>Marketing Strategy</h4>
+                            <span> Sep 2022</span>
+                        </div>
+                        <a href="#" class="related-btn">&#62;</a>
+                    </div>
+                </div>
+
+                <!-- مشروع 3 -->
+                <div class="related-card">
+                    <img src="../media/image/Business Consulting.png" alt="Business Consulting">
+                    <div class="related-card-info">
+                        <div>
+                            <h4>Business Consulting</h4>
+                            <span> Sep 2022</span>
+                        </div>
+                        <a href="#" class="related-btn">&#62;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<footer class="site-footer">
+        <div class="footer-container">
+            
+            <!-- الجزء العلوي: معلومات الاتصال السريع -->
+            <div class="footer-top-info">
+                <div class="footer-logo">
+                    <div class="logo-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 3L12 12L3 21" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 3L21 12L12 21" stroke="#6366f1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h2>WhiteCollar</h2>
+                </div>
+
+                <div class="info-boxes">
+                    <div class="info-box">
+                        <div class="icon-circle"><img src="../media/icons/phone.png" alt=""></div>
+                        <div>
+                            <span>Call Us</span>
+                            <strong>+01 569 896 654</strong>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="icon-circle"><img src="../media/icons/envelope-simple.png" alt=""></div>
+                        <div>
+                            <span>Mail Us</span>
+                            <strong>Info@Example.com</strong>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="icon-circle"><img src="../media/icons/map-pin.png" alt=""></div>
+                        <div>
+                            <span>Location</span>
+                            <strong>Amsterdam, 109-74</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <!-- الجزء الأوسط: القوائم ونموذج الاشتراكات -->
+            <div class="footer-main-grid">
+                <!-- القائمة الأولى: Quick Link -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Quick Link</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="Our Services - 1.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- القائمة الثانية: Our Services -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="Our Services - 1.html">Financial Consulting</a></li>
+                        <li><a href="Our Services - 1.html">Business Management</a></li>
+                        <li><a href="Our Services - 1.html">Consultant & Programs</a></li>
+                        <li><a href="Our Services - 1.html">Company Management</a></li>
+                        <li><a href="Our Services - 1.html">Insurance & Finance</a></li>
+                    </ul>
+                </div>
+
+                <!-- القائمة الثالثة: Utility Page -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Utility Page</h3>
+                    <ul class="footer-links">
+                        <li><a href="changelog.html">Style Guide</a></li>
+                        <li><a href="license.html">Licenses</a></li>
+                        <li><a href="changelog.html">Instructions</a></li>
+                        <li><a href="changelog.html">Changelog</a></li>
+                        <li><a href="404-error.html">404 Page</a></li>
+                    </ul>
+                </div>
+
+                <!-- نموذج الاشتراكات (Subscribe) -->
+                <div class="footer-col subscribe-col">
+                    <h3>Subscribe</h3>
+                    <p>Join Our Mailing List & to get our news.</p>
+                    <form class="subscribe-form">
+                        <input type="email" placeholder="your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <!-- الجزء السفلي: حقوق النشر وأيقونات التواصل -->
+            <div class="footer-bottom">
+                <p>Copyright &copy; <span style="color: #40DDB6;">WhiteCollar</span> | Designed by <span  style="color: #6B77E5;">VictorFlow</span> Templates - Powered by Webflow</p>
+                <div class="footer-social">
+                    <span>Follow :</span>
+                    <a href="#"><img src="../media/icons/instagram-logo-fill.png" alt=""></a>
+                    <a href="#"><img src="../media/icons/facebook-logo-fil.png" alt=""></a>
+                    <a href="#"><img src="../media/icons/twitter-logo-fill.png" alt=""></a>
+                    <a href="#"><img src="../media/icons/pinterest-logo-fil.png" alt=""></a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+</body>
+</html>

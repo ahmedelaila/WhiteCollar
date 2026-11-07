@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Blog</title>
+    </head>
+    <style>
+        /* عنوان القسم العلوي */
+        .news-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .news-header .subtitle {
+            color: #37393F;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: inline-block;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .news-header .subtitle::before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            background-color: #40ddb6;
+            position: absolute;
+            top: 20%;
+            left: -15%;
+        }
+
+        .news-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #37393F;
+        }
+
+        /* شبكة المقالات (Grid) */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        /* كارت المقال الواحد */
+        .news-card {
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #22222a;
+        }
+
+        .news-img-container {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+        }
+
+        .news-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .news-card:hover .news-img-container img {
+            transform: scale(1.05);
+        }
+
+        /* شريط المعلومات أسفل الصورة (التاريخ، الكاتب، التصنيف) */
+        .news-meta {
+            display: flex;
+            background-color: #1f1f28;
+            font-size: 12px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .news-meta div {
+            flex: 1;
+            padding: 12px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .meta-date {
+            background-color: #6366f1;
+        }
+
+        .meta-author {
+            background-color: #10b981;
+        }
+
+        .meta-category {
+            background-color: #38bdf8;
+        }
+
+        /* محتوى المقال النصي */
+        .news-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .news-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #37393F;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .news-desc {
+            font-size: 14px;
+            color: #9ca3af;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .read-more {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.3s;
+            display: inline-block;
+        }
+
+        .read-more:hover {
+            color: #10b981;
+        }
+
+        /* زر التالي (Next) */
+        .pagination-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .next-btn {
+            background-color: #6366f1;
+            color: #ffffff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s;
+        }
+
+        .next-btn:hover {
+            background-color: #4f46e5;
+        }
+
+        /* التجاوب مع الشاشات الصغيرة */
+        @media (max-width: 992px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+<body>
+<header class="site-header">
+        <!-- الشريط العلوي (Top Bar) -->
+        <div class="top-bar">
+            <div class="container top-bar-content">
+                <div class="contact-info">
+                    <span><img src="../media/icons/map-pin.png" alt=""> 24 Olive Street, Prairie, NY 53590</span>
+                    <span><img src="../media/icons/envelope-simple.png" alt=""> whitecollar@gmail.com</span>
+                </div>
+                <div class="extra-info">
+                    <span><img src="../media/icons/clock.png" alt=""> Mon - Fri: 8:00 am - 5:00 pm</span>
+                    <div class="social-icons">
+                        <a href="#"><img src="../media/icons/instagram-logo-fill.png" alt=""></a>
+                        <a href="#"><img src="../media/icons/facebook-logo-fill.png" alt=""></a>
+                        <a href="#"><img src="../media/icons/twitter-logo-fill.png" alt=""></a>
+                        <a href="#"><img src="../media/icons/pinterest-logo-fil.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- شريط التنقل الرئيسي (Main Navbar) -->
+        <div class="main-nav">
+            <div class="container nav-content">
+                <!-- الشعار -->
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 3L12 12L3 21" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 3L21 12L12 21" stroke="#6366f1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h1>WhiteCollar</h1>
+                </div>
+
+                <!-- القائمة -->
+               <nav class="nav-menu">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        
+                        <!-- القائمة المنسدلة للصفحات -->
+                        <li class="dropdown">
+                            <a href="#">Pages <i class="fa-solid fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="404-error.html">404 Error</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="blog-signel.html">Blog Single</a></li>
+                                <li><a href="changelog.html">Changelog</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li><a href="license.html">License</a></li>
+                                <li><a href="price.html">Pricing</a></li>
+                                <li><a href="projects.html">Projects</a></li>
+                                <li><a href="projects-singel.html">Projects Single</a></li>
+                                <li><a href="team.html">Team</a></li>
+                                <li><a href="password.html">Password Protected</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- قائمة منسدلة للخدمات أو روابط مباشرة -->
+                        <li class="dropdown">
+                            <a href="Our Services - 1.html">Services <i class="fa-solid fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="Our Services - 1.html">Our Services 1</a></li>
+                                <li><a href="Services Single - 1.html">Services Single 1</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+
+                <!-- زر الاستشارة -->
+                <div class="nav-action">
+                    <a href="#" class="consulting-btn">Get Consulting</a>
+                </div>
+
+                <!-- زر القائمة للهواتف -->
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        // تفعيل قائمة الهواتف الذكية
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script> 
+    <section class="hero">
+        <div class="heroText">
+            <p class="befor">Recent News</p>
+            <h1 style="width: 70%;">We Keep You Updated</h1>
+        </div>
+        <div class="backGround"></div>
+    </section>
+    <div class="container">
+        
+        <!-- رأس القسم -->
+        <div class="news-header">
+            <span class="subtitle">Our Recent News</span>
+            <h2>Featured News And Insights</h2>
+        </div>
+
+        <!-- شبكة المقالات -->
+        <div class="news-grid">
+            
+            <!-- المقال الأول -->
+            <div class="news-card">
+                <div class="news-img-container">
+                    <img src="../media/image/tenleft.png" alt="Business Consulting">
+                </div>
+                <div class="news-meta">
+                    <div class="meta-date"><i class="fa-regular fa-calendar"></i> April 13/ 2021</div>
+                    <div class="meta-author"><i class="fa-regular fa-user"></i> Miranda Doe</div>
+                    <div class="meta-category"><i class="fa-solid fa-tag"></i> Business</div>
+                </div>
+                <div class="news-content">
+                    <h3 class="news-title">A Business Consulting That Can Produce</h3>
+                    <p class="news-desc">Leverage agile frameworks to provide a robust synopsis for high level overviews.Iterative approaches to corporate strategy foster collaborative thinking.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+
+            <!-- المقال الثاني -->
+            <div class="news-card">
+                <div class="news-img-container">
+                    <img src="../media/image/tenright.png" alt="Email Marketing">
+                </div>
+                <div class="news-meta">
+                    <div class="meta-date"><i class="fa-regular fa-calendar"></i> April 13/ 2021</div>
+                    <div class="meta-author"><i class="fa-regular fa-user"></i> Miranda Doe</div>
+                    <div class="meta-category"><i class="fa-solid fa-tag"></i> Business</div>
+                </div>
+                <div class="news-content">
+                    <h3 class="news-title">Popular Email Marketing Techniques 2022</h3>
+                    <p class="news-desc">Leverage agile frameworks to provide a robust synopsis for high level overviews.Iterative approaches to corporate strategy foster collaborative thinking.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+
+            <!-- المقال الثالث -->
+            <div class="news-card">
+                <div class="news-img-container">
+                    <img src="../media/image/blogleft.png" alt="Backlinks">
+                </div>
+                <div class="news-meta">
+                    <div class="meta-date"><i class="fa-regular fa-calendar"></i> April 13/ 2021</div>
+                    <div class="meta-author"><i class="fa-regular fa-user"></i> Miranda Doe</div>
+                    <div class="meta-category"><i class="fa-solid fa-tag"></i> Business</div>
+                </div>
+                <div class="news-content">
+                    <h3 class="news-title">What are backlinks and Why They are Important</h3>
+                    <p class="news-desc">Leverage agile frameworks to provide a robust synopsis for high level overviews.Iterative approaches to corporate strategy foster collaborative thinking.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+
+            <!-- المقال الرابع -->
+            <div class="news-card">
+                <div class="news-img-container">
+                    <img src="../media/image/blogright.png" alt="Keyword Research">
+                </div>
+                <div class="news-meta">
+                    <div class="meta-date"><i class="fa-regular fa-calendar"></i> April 13/ 2021</div>
+                    <div class="meta-author"><i class="fa-regular fa-user"></i> Miranda Doe</div>
+                    <div class="meta-category"><i class="fa-solid fa-tag"></i> Business</div>
+                </div>
+                <div class="news-content">
+                    <h3 class="news-title">Importance of Keyword Research in a Blog</h3>
+                    <p class="news-desc">Leverage agile frameworks to provide a robust synopsis for high level overviews.Iterative approaches to corporate strategy foster collaborative thinking.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+        </div>
+        <!-- زر الانتقال للصفحة التالية -->
+        <div class="pagination-container">
+            <a href="#" class="next-btn">Next <span>&#62;</span></a>
+        </div>
+
+    </div>
+
+           <footer class="site-footer">
+        <div class="footer-container">
+            
+            <!-- الجزء العلوي: معلومات الاتصال السريع -->
+            <div class="footer-top-info">
+                <div class="footer-logo">
+                    <div class="logo-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 3L12 12L3 21" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 3L21 12L12 21" stroke="#6366f1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h2>WhiteCollar</h2>
+                </div>
+
+                <div class="info-boxes">
+                    <div class="info-box">
+                        <div class="icon-circle"><img src="../media/icons/phone.png" alt=""></div>
+                        <div>
+                            <span>Call Us</span>
+                            <strong>+01 569 896 654</strong>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="icon-circle"><img src="../media/icons/envelope-simple.png" alt=""></div>
+                        <div>
+                            <span>Mail Us</span>
+                            <strong>Info@Example.com</strong>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="icon-circle"><img src="../media/icons/map-pin.png" alt=""></div>
+                        <div>
+                            <span>Location</span>
+                            <strong>Amsterdam, 109-74</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <!-- الجزء الأوسط: القوائم ونموذج الاشتراكات -->
+            <div class="footer-main-grid">
+                <!-- القائمة الأولى: Quick Link -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Quick Link</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="Our Services - 1.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- القائمة الثانية: Our Services -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="Our Services - 1.html">Financial Consulting</a></li>
+                        <li><a href="Our Services - 1.html">Business Management</a></li>
+                        <li><a href="Our Services - 1.html">Consultant & Programs</a></li>
+                        <li><a href="Our Services - 1.html">Company Management</a></li>
+                        <li><a href="Our Services - 1.html">Insurance & Finance</a></li>
+                    </ul>
+                </div>
+
+                <!-- القائمة الثالثة: Utility Page -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Utility Page</h3>
+                    <ul class="footer-links">
+                        <li><a href="changelog.html">Style Guide</a></li>
+                        <li><a href="license.html">Licenses</a></li>
+                        <li><a href="changelog.html">Instructions</a></li>
+                        <li><a href="changelog.html">Changelog</a></li>
+                        <li><a href="404-error.html">404 Page</a></li>
+                    </ul>
+                </div>
+
+                <!-- نموذج الاشتراكات (Subscribe) -->
+                <div class="footer-col subscribe-col">
+                    <h3>Subscribe</h3>
+                    <p>Join Our Mailing List & to get our news.</p>
+                    <form class="subscribe-form">
+                        <input type="email" placeholder="your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <!-- الجزء السفلي: حقوق النشر وأيقونات التواصل -->
+            <div class="footer-bottom">
+                <p>Copyright &copy; <span style="color: #40DDB6;">WhiteCollar</span> | Designed by <span  style="color: #6B77E5;">VictorFlow</span> Templates - Powered by Webflow</p>
+                <div class="footer-social">
+                    <span>Follow :</span>
+                    <a href="#"><img src="../media/icons/instagram-logo-fill.png" alt=""></a>
+                    <a href="#"><img src="../media/icons/facebook-logo-fil.png" alt=""></a>
+                    <a href="#"><img src="../media/icons/twitter-logo-fill.png" alt=""></a>
+                    <a href="#"><img src="../media/icons/pinterest-logo-fil.png" alt=""></a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+</body>
+</html>

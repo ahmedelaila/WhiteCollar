@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>FAQ</title>
+</head>
+<style>
+    .main .container{
+        width: 1220px;
+        height: 507px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 50px;
+    }
+    .main .left {
+        width: 359px;
+        height: 393px;
+        background-color: #F4F4F4;
+    }
+    .left span{
+        font-size: 15px;
+        font-weight: 600;
+        margin: 5px;
+    }
+    .left ul li{
+        list-style: none;
+        padding: 12px 15px;
+        width: 280px;
+        height: 50px;
+    }
+    .left ul li:hover{
+        background-color: #6B77E5;
+        color: white;
+    }
+    .right {
+        width: 810px;
+        height: 507px;
+    }
+    .right div{
+        border: 1px solid #E3E3E3;
+        margin: 10px;
+        cursor: pointer;
+    }
+    .right div h1{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 20px;
+        font-weight: 600;
+        padding: 25px 30px;
+        color: #37393F;
+    }
+/* إخفاء الفقرة افتراضياً وإضافة تأثير انتقال ناعم */
+.details {
+    display: none;
+    margin-top: 10px;
+}
+
+/* جعل مؤشر الفأرة يظهر بشكل اليد عند الوقوف على الصورة */
+.toggle-icon {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* صنف يتم إضافته عبر JavaScript لإظهار الفقرة وتدوير الصورة للأعلى */
+div.active .details {
+    display: block;
+}
+
+div.active .toggle-icon {
+    transform: rotate(180deg);
+}
+</style>
+<body>
+    <header class="site-header">
+        <!-- الشريط العلوي (Top Bar) -->
+        <div class="top-bar">
+            <div class="container top-bar-content">
+                <div class="contact-info">
+                    <span><img src="../media/icons/map-pin.png" alt=""> 24 Olive Street, Prairie, NY 53590</span>
+                    <span><img src="../media/icons/envelope-simple.png" alt=""> whitecollar@gmail.com</span>
+                </div>
+                <div class="extra-info">
+                    <span><img src="../media/icons/clock.png" alt=""> Mon - Fri: 8:00 am - 5:00 pm</span>
+                    <div class="social-icons">
+                        <a href="#"><img src="../media/icons/instagram-logo-fill.png" alt=""></a>
+                        <a href="#"><img src="../media/icons/facebook-logo-fill.png" alt=""></a>
+                        <a href="#"><img src="../media/icons/twitter-logo-fill.png" alt=""></a>
+                        <a href="#"><img src="../media/icons/pinterest-logo-fil.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- شريط التنقل الرئيسي (Main Navbar) -->
+        <div class="main-nav">
+            <div class="container nav-content">
+                <!-- الشعار -->
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 3L12 12L3 21" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 3L21 12L12 21" stroke="#6366f1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h1>WhiteCollar</h1>
+                </div>
+
+                <!-- القائمة -->
+               <nav class="nav-menu">
+                    <ul class="nav-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        
+                        <!-- القائمة المنسدلة للصفحات -->
+                        <li class="dropdown">
+                            <a href="#">Pages <i class="fa-solid fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="404-error.html">404 Error</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="blog-signel.html">Blog Single</a></li>
+                                <li><a href="changelog.html">Changelog</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li><a href="license.html">License</a></li>
+                                <li><a href="price.html">Pricing</a></li>
+                                <li><a href="projects.html">Projects</a></li>
+                                <li><a href="projects-singel.html">Projects Single</a></li>
+                                <li><a href="team.html">Team</a></li>
+                                <li><a href="password.html">Password Protected</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- قائمة منسدلة للخدمات أو روابط مباشرة -->
+                        <li class="dropdown">
+                            <a href="Our Services - 1.html">Services <i class="fa-solid fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="Our Services - 1.html">Our Services 1</a></li>
+                                <li><a href="Services Single - 1.html">Services Single 1</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+
+                <!-- زر الاستشارة -->
+                <div class="nav-action">
+                    <a href="#" class="consulting-btn">Get Consulting</a>
+                </div>
+
+                <!-- زر القائمة للهواتف -->
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        // تفعيل قائمة الهواتف الذكية
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script> 
+    
+    <section class="hero">
+        <div class="heroText" style="padding-top: 10%; width: 100%;">
+            <p class="befor">Quick Solution</p>
+            <h1>Frequently Asked Questions</h1>
+        </div>
+        <div class="backGround"></div>
+    </section>
+    <section class="main">
+        <div class="container">
+        <div class="left">
+            <ul class="top">
+                <li>
+                    <h3>Categories</h3>
+                </li>
+            </ul>
+            <br>
+            <ul>
+                <li><span>Main Questions</span></li>
+                <li><span>Common Queries</span></li>
+                <li><span>General Questions</span></li>
+                <li><span>Legal information</span></li>
+            </ul>
+        </div>
+        <div class="right">
+<div>
+    <h1><span>How does our pricing works ?</span><span class="click"><img src="../media/icons/caret-down.png" alt="toggle" class="toggle-icon"></span></h1>
+    <p class="details">Objectively innovated empowered manufactured products where as parallel holisticly predominat extensible testing procedures reliable supply chains dramatically engage top-line web services vis-a-vis cutting-edge deliverables.</p>
+</div>
+<div>
+    <h1><span>Do You Offer Volume Or Loyalty Discounts?</span><span class="click"><img src="../media/icons/caret-down.png" alt="toggle" class="toggle-icon"></span></h1>
+    <p class="details">Objectively innovated empowered manufactured products where as parallel holisticly predominat extensible testing procedures reliable supply chains dramatically engage top-line web services vis-a-vis cutting-edge deliverables.</p>
+</div>
+<div>
+    <h1><span>What Types Of Companies Do You Work With?</span><span class="click"><img src="../media/icons/caret-down.png" alt="toggle" class="toggle-icon"></span></h1>
+    <p class="details">Objectively innovated empowered manufactured products where as parallel holisticly predominat extensible testing procedures reliable supply chains dramatically engage top-line web services vis-a-vis cutting-edge deliverables.</p>
+</div>
+        </div>
+        </div>
+    </section>
+
+
+
+       <footer class="site-footer">
+        <div class="footer-container">
+            
+            <!-- الجزء العلوي: معلومات الاتصال السريع -->
+            <div class="footer-top-info">
+                <div class="footer-logo">
+                    <div class="logo-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 3L12 12L3 21" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 3L21 12L12 21" stroke="#6366f1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h2>WhiteCollar</h2>
+                </div>
+
+                <div class="info-boxes">
+                    <div class="info-box">
+                        <div class="icon-circle"><img src="../media/icons/phone.png" alt=""></div>
+                        <div>
+                            <span>Call Us</span>
+                            <strong>+01 569 896 654</strong>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="icon-circle"><img src="../media/icons/envelope-simple.png" alt=""></div>
+                        <div>
+                            <span>Mail Us</span>
+                            <strong>Info@Example.com</strong>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="icon-circle"><img src="../media/icons/map-pin.png" alt=""></div>
+                        <div>
+                            <span>Location</span>
+                            <strong>Amsterdam, 109-74</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <!-- الجزء الأوسط: القوائم ونموذج الاشتراكات -->
+            <div class="footer-main-grid">
+                <!-- القائمة الأولى: Quick Link -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Quick Link</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="Our Services - 1.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- القائمة الثانية: Our Services -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="Our Services - 1.html">Financial Consulting</a></li>
+                        <li><a href="Our Services - 1.html">Business Management</a></li>
+                        <li><a href="Our Services - 1.html">Consultant & Programs</a></li>
+                        <li><a href="Our Services - 1.html">Company Management</a></li>
+                        <li><a href="Our Services - 1.html">Insurance & Finance</a></li>
+                    </ul>
+                </div>
+
+                <!-- القائمة الثالثة: Utility Page -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Utility Page</h3>
+                    <ul class="footer-links">
+                        <li><a href="changelog.html">Style Guide</a></li>
+                        <li><a href="license.html">Licenses</a></li>
+                        <li><a href="changelog.html">Instructions</a></li>
+                        <li><a href="changelog.html">Changelog</a></li>
+                        <li><a href="404-error.html">404 Page</a></li>
+                    </ul>
+                </div>
+
+                <!-- نموذج الاشتراكات (Subscribe) -->
+                <div class="footer-col subscribe-col">
+                    <h3>Subscribe</h3>
+                    <p>Join Our Mailing List & to get our news.</p>
+                    <form class="subscribe-form">
+                        <input type="email" placeholder="your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <!-- الجزء السفلي: حقوق النشر وأيقونات التواصل -->
+            <div class="footer-bottom">
+                <p>Copyright &copy; <span style="color: #40DDB6;">WhiteCollar</span> | Designed by <span  style="color: #6B77E5;">VictorFlow</span> Templates - Powered by Webflow</p>
+                <div class="footer-social">
+                    <span>Follow :</span>
+                    <a href="#"><img src="../media/icons/instagram-logo-fill.png" alt=""></a>
+                    <a href="#"><img src="../media/icons/facebook-logo-fil.png" alt=""></a>
+                    <a href="#"><img src="../media/icons/twitter-logo-fill.png" alt=""></a>
+                    <a href="#"><img src="../media/icons/pinterest-logo-fil.png" alt=""></a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <script>
+// اختيار كل الصور التي تمتلك الصنف toggle-icon
+const icons = document.querySelectorAll('.toggle-icon');
+
+icons.forEach(icon => {
+    icon.addEventListener('click', function() {
+        // الوصول إلى العنصر الأب الرئيسي (div) الخاص بالسؤال الحالي
+        const parentDiv = this.closest('div');
+        
+        // تبديل إضافة/إزالة الصنف active للتحكم بالظهور والتأثيرات
+        parentDiv.classList.toggle('active');
+    });
+});
+</script>
+</body>
+</html>

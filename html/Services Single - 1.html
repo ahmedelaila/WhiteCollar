@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Details - International Business</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* إعدادات عامة */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* تخطيط الصفحة العام (Grid System بديل Bootstrap) */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .col-lg-4 {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .col-lg-8 {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .col-md-5 {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .col-md-7 {
+            flex: 1.5;
+            min-width: 250px;
+        }
+
+        /* القائمة الجانبية للخدمات */
+        .sidebar-card {
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .sidebar-card h3, .sidebar-card h5 {
+            color: #37393F;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .service-link {
+            color: #37393F;
+            border: none;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .service-link:hover, .service-link.active {
+            background-color: #6366f1;
+            color: #fff;
+        }
+
+        /* قسم التحميل */
+        .download-desc {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        .download-btn {
+            background-color: #4f46e5;
+            color: #fff;
+            border-radius: 6px;
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            margin-bottom: 10px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .download-btn:hover {
+            background-color: #4338ca;
+        }
+
+        .file-icon {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        /* صندوق المساعدة */
+        .help-box {
+            background: linear-gradient(135deg, #0d9488, #10b981);
+            border-radius: 8px;
+            padding: 25px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .help-subtitle {
+            font-size: 12px;
+            opacity: 0.8;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .help-box h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .help-box p {
+            font-size: 13px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .help-btn {
+            background-color: #5851db;
+            color: #fff;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .help-btn:hover {
+            background-color: #473fc3;
+        }
+
+        /* المحتوى الرئيسي */
+        .main-content h2 {
+            color: #fff;
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
+
+        .main-content h3 {
+            color: #fff;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .main-content h5 {
+            color: #fff;
+            font-size: 16px;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .main-content p {
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 15px;
+        }
+
+        .content-img {
+            border-radius: 8px;
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .small-img {
+            height: 220px;
+        }
+
+        /* قسم الفوائد (Benefits) */
+        .benefits-section {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin: 35px 0;
+            flex-wrap: wrap;
+        }
+
+        .benefits-content h4 {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .benefits-subtitle {
+            color: #40DDB6;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #7D7D7D;
+        }
+
+        .benefit-icon {
+            color: #3b82f6;
+            background-color: rgba(59, 130, 246, 0.1);
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 10px;
+        }
+
+        /* الأسئلة الشائعة (FAQ) */
+        .faq-container {
+            margin-top: 40px;
+        }
+
+        .faq-box {
+            border: 1px solid #2a2a2a;
+            border-radius: 6px;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            color: #37393F;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-size: 20px;
+            transition: border-color 0.3s;
+        }
+
+        .faq-box:hover {
+            border-color: #6366f1;
+        }
+
+        .faq-box i {
+            color: #777;
+            font-size: 12px;
+        }
+
+        /* التجاوب مع الهواتف الذكية */
+        @media (max-width: 768px) {
+            .row {
+                flex-direction: column;
+            }
+            .container {
+                padding: 20px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <!-- الشريط العلوي (Top Bar) -->
+        <div class="top-bar">
+            <div class="container top-bar-content">
+                <div class="contact-info">
+                    <span><img src="../media/icons/map-pin.png" alt=""> 24 Olive Street, Prairie, NY 53590</span>
+                    <span><img src="../media/icons/envelope-simple.png" alt=""> whitecollar@gmail.com</span>
+                </div>
+                <div class="extra-info">
+                    <span><img src="../media/icons/clock.png" alt=""> Mon - Fri: 8:00 am - 5:00 pm</span>
+                    <div class="social-icons">
+                        <a href="#"><img src="../media/icons/instagram-logo-fill.png" alt=""></a>
+                        <a href="#"><img src="../media/icons/facebook-logo-fill.png" alt=""></a>
+                        <a href="#"><img src="../media/icons/twitter-logo-fill.png" alt=""></a>
+                        <a href="#"><img src="../media/icons/pinterest-logo-fil.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- شريط التنقل الرئيسي (Main Navbar) -->
+        <div class="main-nav">
+            <div class="container nav-content">
+                <!-- الشعار -->
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 3L12 12L3 21" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 3L21 12L12 21" stroke="#6366f1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h1>WhiteCollar</h1>
+                </div>
+
+                <!-- القائمة -->
+               <nav class="nav-menu">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        
+                        <!-- القائمة المنسدلة للصفحات -->
+                        <li class="dropdown">
+                            <a href="#">Pages <i class="fa-solid fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="404-error.html">404 Error</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="blog-signel.html">Blog Single</a></li>
+                                <li><a href="changelog.html">Changelog</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li><a href="license.html">License</a></li>
+                                <li><a href="price.html">Pricing</a></li>
+                                <li><a href="projects.html">Projects</a></li>
+                                <li><a href="projects-singel.html">Projects Single</a></li>
+                                <li><a href="team.html">Team</a></li>
+                                <li><a href="password.html">Password Protected</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- قائمة منسدلة للخدمات أو روابط مباشرة -->
+                        <li class="dropdown">
+                            <a href="Our Services - 1.html">Services <i class="fa-solid fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="Our Services - 1.html">Our Services 1</a></li>
+                                <li><a href="Services Single - 1.html">Services Single 1</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+
+                <!-- زر الاستشارة -->
+                <div class="nav-action">
+                    <a href="#" class="consulting-btn">Get Consulting</a>
+                </div>
+
+                <!-- زر القائمة للهواتف -->
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+        </header>
+    <div class="container">
+        <div class="row">
+            
+            <!-- العمود الجانبي (Sidebar) -->
+            <div class="col-lg-4">
+                
+                <!-- قائمة الخدمات -->
+                <div class="sidebar-card">
+                    <h3>Services</h3>
+                    <div style="display: flex; flex-direction: column;">
+                        <a href="#" class="service-link active">Financial Consultancy <i class="fa-solid fa-chevron-right"></i></a>
+                        <a href="#" class="service-link">Business Management <i class="fa-solid fa-chevron-right"></i></a>
+                        <a href="#" class="service-link">Consultancy Program <i class="fa-solid fa-chevron-right"></i></a>
+                        <a href="#" class="service-link">Marketing Consultancy <i class="fa-solid fa-chevron-right"></i></a>
+                        <a href="#" class="service-link">Financial Insurance & Jobs <i class="fa-solid fa-chevron-right"></i></a>
+                        <a href="#" class="service-link">Bank Management <i class="fa-solid fa-chevron-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- قسم التحميل -->
+                <div class="sidebar-card">
+                    <h5>Download</h5>
+                    <p class="download-desc">One-to-one customer service with robust deliverables.</p>
+                    
+                    <a href="#" class="download-btn">
+                        <div class="file-icon"><i class="fa-solid fa-file-pdf"></i> PDF</div>
+                        <span>Document.pdf</span>
+                    </a>
+                    <a href="#" class="download-btn">
+                        <div class="file-icon"><i class="fa-solid fa-file-zipper"></i> ZIP</div>
+                        <span>Document.zip</span>
+                    </a>
+                </div>
+
+                <!-- صندوق المساعدة -->
+                <div class="help-box">
+                    <span class="help-subtitle">■ Have any question?</span>
+                    <h3>Do you need any help?</h3>
+                    <p>Leverage agile frameworks to provide a robust synopsis for high level.</p>
+                    <a href="#" class="help-btn">Contact Us</a>
+                </div>
+
+            </div>
+
+            <!-- المحتوى الرئيسي (Main Content) -->
+            <div class="col-lg-8 main-content">
+                
+                <!-- صورة الفريق بالاعلى -->
+                <div>
+                    <img src="../media/image/hero.png" alt="Team meeting" class="content-img">
+                    
+                    <h2>Why Us For International Business Management Consulting!</h2>
+                    <p>Completely synergized resourced taxings relationships premiers markets ultimate one-to-one customer service with robust ideas dynamically innovated resources leveling customer service for state of the art customer service innovate product for reliable supply engage web services cutting-edge deliverables.</p>
+                    
+                    <h5>Proactively envisioned multimedia based expertise media growth superior collaboration.</h5>
+                    <p>One-to-one customer service with robust ideas dynamically innovated resources for reliable supply engage web services cutting-edge deliverables.</p>
+                </div>
+
+                <!-- قسم الصور والفوائد -->
+                <div class="benefits-section">
+                    <div class="col-md-5">
+                        <img src="../media/image/laptop-plant.png" alt="Workplace" class="content-img small-img" style="margin-bottom: 0;">
+                    </div>
+                    <div class="col-md-7 benefits-content">
+                        <h4>Our benefits</h4>
+                        <span class="benefits-subtitle">Incubate standards compliant channels benefits.</span>
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><img src="../media/icons/check-circle-fill.png" alt=""></div>
+                            <span>Credibly reintermediate backend</span>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><img src="../media/icons/check-circle-fill.png" alt=""></div>
+                            <span>Holistically foster superior</span>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><img src="../media/icons/check-circle-fill.png" alt=""></div>
+                            <span>Distinctively exploit optimal</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- الأسئلة الشائعة -->
+                <div class="faq-container">
+                    <h3>Frequently Asked Questions</h3>
+                    <p style="margin-bottom: 20px;">Leveling customer service for state of the art customer service innovate product for reliable supply engage web services cutting-edge deliverables.</p>
+                    
+                    <div class="faq-box">
+                        <span>How does our pricing works?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-box">
+                        <span>Where do I look for "Frequently Asked" Questions?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-box">
+                        <span>Which template is the best for business?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-box">
+                        <span>Which template is the best for business?</span>
+                        <span>+</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+<footer class="site-footer">
+        <div class="footer-container">
+            
+            <!-- الجزء العلوي: معلومات الاتصال السريع -->
+            <div class="footer-top-info">
+                <div class="footer-logo">
+                    <div class="logo-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 3L12 12L3 21" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 3L21 12L12 21" stroke="#6366f1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h2>WhiteCollar</h2>
+                </div>
+
+                <div class="info-boxes">
+                    <div class="info-box">
+                        <div class="icon-circle"><img src="../media/icons/phone.png" alt=""></div>
+                        <div>
+                            <span>Call Us</span>
+                            <strong>+01 569 896 654</strong>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="icon-circle"><img src="../media/icons/envelope-simple.png" alt=""></div>
+                        <div>
+                            <span>Mail Us</span>
+                            <strong>Info@Example.com</strong>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="icon-circle"><img src="../media/icons/map-pin.png" alt=""></div>
+                        <div>
+                            <span>Location</span>
+                            <strong>Amsterdam, 109-74</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <!-- الجزء الأوسط: القوائم ونموذج الاشتراكات -->
+            <div class="footer-main-grid">
+                <!-- القائمة الأولى: Quick Link -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Quick Link</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="Our Services - 1.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- القائمة الثانية: Our Services -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="Our Services - 1.html">Financial Consulting</a></li>
+                        <li><a href="Our Services - 1.html">Business Management</a></li>
+                        <li><a href="Our Services - 1.html">Consultant & Programs</a></li>
+                        <li><a href="Our Services - 1.html">Company Management</a></li>
+                        <li><a href="Our Services - 1.html">Insurance & Finance</a></li>
+                    </ul>
+                </div>
+
+                <!-- القائمة الثالثة: Utility Page -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Utility Page</h3>
+                    <ul class="footer-links">
+                        <li><a href="changelog.html">Style Guide</a></li>
+                        <li><a href="license.html">Licenses</a></li>
+                        <li><a href="changelog.html">Instructions</a></li>
+                        <li><a href="changelog.html">Changelog</a></li>
+                        <li><a href="404-error.html">404 Page</a></li>
+                    </ul>
+                </div>
+
+                <!-- نموذج الاشتراكات (Subscribe) -->
+                <div class="footer-col subscribe-col">
+                    <h3>Subscribe</h3>
+                    <p>Join Our Mailing List & to get our news.</p>
+                    <form class="subscribe-form">
+                        <input type="email" placeholder="your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <!-- الجزء السفلي: حقوق النشر وأيقونات التواصل -->
+            <div class="footer-bottom">
+                <p>Copyright &copy; <span style="color: #40DDB6;">WhiteCollar</span> | Designed by <span  style="color: #6B77E5;">VictorFlow</span> Templates - Powered by Webflow</p>
+                <div class="footer-social">
+                    <span>Follow :</span>
+                    <a href="#"><img src="../media/icons/instagram-logo-fill.png" alt=""></a>
+                    <a href="#"><img src="../media/icons/facebook-logo-fil.png" alt=""></a>
+                    <a href="#"><img src="../media/icons/twitter-logo-fill.png" alt=""></a>
+                    <a href="#"><img src="../media/icons/pinterest-logo-fil.png" alt=""></a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
